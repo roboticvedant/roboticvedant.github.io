@@ -24,26 +24,30 @@ pointLight.position.set(5, 5, 5);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
 
+const stars = []; // Array to store stars for animation
+
 // Function to add stars
 function addStar() {
   const geometry = new THREE.SphereGeometry(0.25, 24, 24);
-  const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+  const material = new THREE.MeshStandardMaterial({ color: Math.random() < 0.5 ? 0xff0000 : 0x00ff00 }); // Randomly choose red or green
   const star = new THREE.Mesh(geometry, material);
 
   const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
 
   star.position.set(x, y, z);
   scene.add(star);
+  stars.push(star); // Add star to array for animation
 }
 
-Array(200).fill().forEach(addStar);
+Array(200).fill().forEach(addStar); // Add 200 stars
+
 
 // Background
-const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+const spaceTexture = new THREE.TextureLoader().load('assets/eebg3.webp');
 scene.background = spaceTexture;
 
 // Avatar
-const vedantTexture = new THREE.TextureLoader().load('vedant.jpg');
+const vedantTexture = new THREE.TextureLoader().load('assets/vedant.jpg');
 
 const vedant = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: vedantTexture }));
 
@@ -53,14 +57,14 @@ vedant.position.z = -5;
 vedant.position.x = 2;
 
 // GitHub Cube
-const githubTexture = new THREE.TextureLoader().load('github.png');
+const githubTexture = new THREE.TextureLoader().load('assets/github.png');
 const githubCube = new THREE.Mesh(new THREE.BoxGeometry(3, 3, 3), new THREE.MeshBasicMaterial({ map: githubTexture }));
 githubCube.position.set(10, 5, -10);
 githubCube.userData = { URL: 'https://github.com/roboticvedant/' }; 
 scene.add(githubCube);
 
 // LinkedIn Cube
-const linkedInTexture = new THREE.TextureLoader().load('linkedin.png');
+const linkedInTexture = new THREE.TextureLoader().load('assets/linkedin.png');
 const linkedInCube = new THREE.Mesh(new THREE.BoxGeometry(4, 4, 4), new THREE.MeshBasicMaterial({ map: linkedInTexture }));
 linkedInCube.position.set(-7, 0, -5);
 linkedInCube.userData = { URL: 'https://www.linkedin.com/in/vedantknaik' }; 
@@ -68,13 +72,13 @@ scene.add(linkedInCube);
 
 // Skill Logos orbiting the GitHub Cube
 const skillLogos = [
-  { src: 'c.png' },
-  { src: 'cpp.png' },
-  { src: 'python.png' },
-  { src: 'arduino.png' },
-  { src: 'matlab.png' },
-  { src: 'ros2.png' },
-  { src: 'tensorflow.png' }
+  { src: 'assets/c.png' },
+  { src: 'assets/cpp.png' },
+  { src: 'assets/python.png' },
+  { src: 'assets/arduino.png' },
+  { src: 'assets/matlab.png' },
+  { src: 'assets/ros2.png' },
+  { src: 'assets/tensorflow.png' }
 ];
 
 const skillLogoMeshes = skillLogos.map((logo, index) => {
@@ -95,11 +99,11 @@ const skillLogoMeshes = skillLogos.map((logo, index) => {
 });
 
 // Education and Experience Logos
-const educationLogos = [{ src: 'msu.png' }];
+const educationLogos = [{ src: 'assets/msu.png' }];
 const experienceLogos = [
-  { src: 'sml.png' },
-  { src: 'solar_car.png' },
-  { src: 'frib.jpg' }
+  { src: 'assets/sml.png' },
+  { src: 'assets/solar_car.png' },
+  { src: 'assets/frib.jpg' }
 ];
 
 const educationLogoMeshes = educationLogos.map((logo, index) => {
@@ -173,6 +177,10 @@ function moveCamera() {
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0002;
 
+   // Ensure avatar stays upright
+   vedant.rotation.y = camera.rotation.y;
+   vedant.rotation.z = 0;
+   
   const sections = document.querySelectorAll('section');
   let currentSection = 'about';
   sections.forEach(section => {
@@ -227,10 +235,22 @@ function moveCamera() {
 
 document.body.onscroll = moveCamera;
 moveCamera();
-
+// Animation Loop
+let lastBlinkTime = Date.now();
+const blinkPeriod = 150; // 250ms period
 // Animation Loop
 function animate() {
   requestAnimationFrame(animate);
+  stars.forEach(star => {
+    const blinkSpeed = Math.random() *200 + 25; // Random blink speed for each star
+    const currentTime = Date.now();
+    if (currentTime - lastBlinkTime >= blinkPeriod+blinkSpeed) { // Check if 250ms have passed
+    stars.forEach(star => {
+      star.visible = !star.visible; // Toggle visibility
+    });
+    lastBlinkTime = currentTime; // Reset the last blink time
+  }
+  });
 
   githubCube.rotation.x += 0.01;
   githubCube.rotation.y += 0.01;
@@ -245,22 +265,28 @@ function animate() {
 }
 
 animate();
-
 // Event listener to open GitHub and LinkedIn profiles on click
-renderer.domElement.addEventListener('click', (event) => {
+window.addEventListener('pointerdown', (event) => {
+  console.log('Pointerdown event detected'); // Debugging: check if event listener is working
+
   const mouse = new THREE.Vector2(
     (event.clientX / window.innerWidth) * 2 - 1,
     -(event.clientY / window.innerHeight) * 2 + 1
   );
 
+  console.log(`Mouse coordinates: ${mouse.x}, ${mouse.y}`); // Debugging: log mouse position
+
   const raycaster = new THREE.Raycaster();
   raycaster.setFromCamera(mouse, camera);
 
-  const intersects = raycaster.intersectObjects([githubCube, linkedInCube]);
+  const intersects = raycaster.intersectObjects([githubCube, linkedInCube], true);
   if (intersects.length > 0) {
     const url = intersects[0].object.userData.URL;
+    console.log(`Clicked on: ${url}`); // Debugging: log the URL
     if (url) {
       window.open(url, '_blank');
     }
+  } else {
+    console.log('No intersection detected'); // Debugging: log if no intersection
   }
 });
