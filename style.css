@@ -73,3 +73,18 @@ blockquote p {
 .left {
   grid-column: 6 / 12;
 }
+
+.label {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.skill-label {
+  display: inline-block;
+  background-color: #f1f1f1;
+  color: #333;
+  padding: 3px 8px;
+  margin: 2px;
+  border-radius: 3px;
+  font-size: 0.9em;
+}

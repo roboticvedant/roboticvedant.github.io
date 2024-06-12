@@ -18,10 +18,10 @@ camera.position.setX(-3);
 renderer.render(scene, camera);
 
 // Lights
-const pointLight = new THREE.PointLight(0xffffff);
-pointLight.position.set(5, 5, 5);
+const pointLight = new THREE.PointLight(0xffffff, 0.3); // Reduced intensity
+pointLight.position.set(10, 10, 10);
 
-const ambientLight = new THREE.AmbientLight(0xffffff);
+const ambientLight = new THREE.AmbientLight(0x404040, 0.1); // Reduced intensity
 scene.add(pointLight, ambientLight);
 
 const stars = []; // Array to store stars for animation
@@ -39,11 +39,11 @@ function addStar() {
   stars.push(star); // Add star to array for animation
 }
 
-Array(200).fill().forEach(addStar); // Add 200 stars
+Array(21).fill().forEach(addStar); // Add 200 stars
 
 
 // Background
-const spaceTexture = new THREE.TextureLoader().load('assets/eebg3.webp');
+const spaceTexture = new THREE.TextureLoader().load('assets/wall_3.jpg');
 scene.background = spaceTexture;
 
 // Avatar
@@ -101,9 +101,9 @@ const skillLogoMeshes = skillLogos.map((logo, index) => {
 // Education and Experience Logos
 const educationLogos = [{ src: 'assets/msu.png' }];
 const experienceLogos = [
-  { src: 'assets/sml.png' },
-  { src: 'assets/solar_car.png' },
-  { src: 'assets/frib.jpg' }
+  { src: 'assets/sml.png', url: 'https://smlab.msu.edu/' },
+  { src: 'assets/solar_car.png', url: 'https://www.msusolar.com/' },
+  { src: 'assets/frib.jpg', url: 'https://frib.msu.edu/' }
 ];
 
 const educationLogoMeshes = educationLogos.map((logo, index) => {
@@ -123,7 +123,7 @@ const experienceLogoMeshes = experienceLogos.map((logo, index) => {
   const geometry = new THREE.BoxGeometry(3, 3, 3);
   const material = new THREE.MeshBasicMaterial({ map: texture });
   const mesh = new THREE.Mesh(geometry, material);
-
+  mesh.userData = { URL: logo.url };
   scene.add(mesh);
   return mesh;
 });
@@ -279,7 +279,7 @@ window.addEventListener('pointerdown', (event) => {
   const raycaster = new THREE.Raycaster();
   raycaster.setFromCamera(mouse, camera);
 
-  const intersects = raycaster.intersectObjects([githubCube, linkedInCube], true);
+  const intersects = raycaster.intersectObjects([githubCube, linkedInCube, ...experienceLogoMeshes], true);
   if (intersects.length > 0) {
     const url = intersects[0].object.userData.URL;
     console.log(`Clicked on: ${url}`); // Debugging: log the URL
