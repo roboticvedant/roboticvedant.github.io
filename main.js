@@ -1,5 +1,6 @@
 import './style.css';
 import * as THREE from 'three';
+import Typed from 'typed.js';
 
 // Setup
 const scene = new THREE.Scene();
@@ -289,4 +290,21 @@ window.addEventListener('pointerdown', (event) => {
   } else {
     console.log('No intersection detected'); // Debugging: log if no intersection
   }
+});
+
+// Initialize Typed.js
+document.addEventListener('DOMContentLoaded', function() {
+  new Typed('#typed-element', {
+    strings: [
+      "🚀 Welcome to my <span class='highlight'>HomePage</span>!", 
+      "I'm an <span class='highlight'>Electrical Engineer</span>⚡", 
+      "Checkout my work <span class='highlight'>Experiences</span>🌟",
+      "Learn about my <span class='highlight'>Skills</span>💡"
+    ],
+    typeSpeed: 50,
+    backSpeed: 25,
+    backDelay: 1000,
+    startDelay: 500,
+    loop: true
+  });
 });

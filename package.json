@@ -7,13 +7,15 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy":"gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
     "vite": "^5.2.0"
   },
   "dependencies": {
     "gh-pages": "^6.1.1",
-    "three": "^0.165.0"
+    "sitemap": "^8.0.0",
+    "three": "^0.165.0",
+    "typed.js": "^2.1.0"
   }
 }

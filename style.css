@@ -88,3 +88,27 @@ blockquote p {
   border-radius: 3px;
   font-size: 0.9em;
 }
+
+#typed-element {
+  display: inline;
+}
+
+.typed-cursor {
+  display: inline-block;
+  font-size: 3rem;
+  opacity: 1;
+  animation: blink 0.7s infinite;
+}
+
+.highlight {
+  color: yellow; /* Change the color to your desired highlight color */
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
