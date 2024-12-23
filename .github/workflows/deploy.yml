@@ -28,33 +28,6 @@ on:
       - "!FAQ.md"
       - "!INSTALL.md"
       - "!README.md"
-  pull_request:
-    branches:
-      - master
-      - main
-    paths:
-      - "assets/**"
-      - "**.bib"
-      - "**.html"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "Gemfile"
-      - "Gemfile.lock"
-      - "!.github/workflows/axe.yml"
-      - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
-      - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
-      - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
-      - "!README.md"
   workflow_dispatch:
 
 permissions:
@@ -62,21 +35,29 @@ permissions:
 
 jobs:
   deploy:
-    # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.3.5"
           bundler-cache: true
+
       - name: Setup Python 🐍
         uses: actions/setup-python@v5
         with:
           python-version: "3.13"
-          cache: "pip" # caching pip dependencies
+          cache: "pip"
+
+      - name: Install dependencies 🔧
+        run: |
+          sudo apt-get update && sudo apt-get install -y imagemagick
+          pip3 install --upgrade nbconvert
+          npm install -g purgecss gh-pages
+
       - name: Update _config.yml ⚙️
         uses: fjogeleit/yaml-update-action@main
         with:
@@ -84,18 +65,44 @@ jobs:
           valueFile: "_config.yml"
           propertyPath: "giscus.repo"
           value: ${{ github.repository }}
-      - name: Install and Build 🔧
-        run: |
-          sudo apt-get update && sudo apt-get install -y imagemagick
-          pip3 install --upgrade nbconvert
-          export JEKYLL_ENV=production
-          bundle exec jekyll build
-      - name: Purge unused CSS 🧹
-        run: |
-          npm install -g purgecss
-          purgecss -c purgecss.config.js
-      - name: Deploy 🚀
+
+      - name: Deploy to Multiple Targets 🚀
         if: github.event_name != 'pull_request'
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: _site
+        run: |
+          # Configure git
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
+          # Define deployments
+          declare -A DEPLOYMENTS=(
+            ["gh-pages"]="url: https://roboticvedant.github.io|baseurl: "
+            ["gh-pages-msu"]="url: https://egr.msu.edu|baseurl: ~naikveda"
+          )
+
+          # Process each deployment
+          for branch in "${!DEPLOYMENTS[@]}"; do
+            echo "🔄 Processing deployment for $branch"
+            
+            # Update configuration
+            IFS='|' read -r url baseurl <<< "${DEPLOYMENTS[$branch]}"
+            sed -i "s|url: .*|$url|" _config.yml
+            sed -i "s|baseurl: .*|$baseurl|" _config.yml
+            
+            # Set environment
+            if [[ "$branch" == "gh-pages-msu" ]]; then
+              export JEKYLL_ENV=msu
+            else
+              export JEKYLL_ENV=production
+            fi
+            
+            echo "🏗️ Building site..."
+            bundle exec jekyll build
+            
+            echo "🧹 Purging unused CSS..."
+            purgecss -c purgecss.config.js
+            
+            echo "🚀 Deploying to $branch..."
+            npx gh-pages -d _site -b $branch -m "Deploy to $branch" --dotfiles
+            
+            echo "✅ Completed deployment to $branch"
+          done
