@@ -15,12 +15,12 @@
       institution: Michigan State University, East Lansing, Michigan, US
       year: 2026
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
+        - GPA: 4.0/4.0
+        - title: Activities and Societies
           contents:
-            - Sub-description 1.
-            - Sub-description 2.
+            - Tau Beta Pi Engineering Honor Society
+            - MSU Solar Racing Team
+            - PoliMOVE-MSU Autonomous Racing Team
 
 - title: Experience
   type: time_table
@@ -39,19 +39,38 @@
       institution: Smart Microsystems Lab, Michigan State University, East Lansing, Michigan, US
       year: August 2023- Present
       description:
-        - Description 1.
-        - Description 2.
+        - Engineered an autonomous robotic blimp with 4-thruster configuration, IMU, WiFi, and LoRa connectivity;
+          developed microcontroller PCB and firmware with micro-ROS architecture to streamline algorithm development
+          between low-level and high-level control systems
+        - Modeled a non-linear strain sensor with considerable time dynamics using Time Delayed Neural
+          Network(TDNN), to capture temporal features. Resulting in a model with a R2=0.98+, and a prediction frequency
+          of over 2kHz
+        - Designed an 8-pressure sensor breakout board with Altium Designer to interface with a pneumatic pressure
+          setup to measure negative and positive gauge pressures
+
 
     - title: Embedded Systems Intern
       institution: Intrepid Control Systems, Troy, Michigan, US
       year: May 2024 - August 2024
+      description:
+        - Enhanced firmware of Zynq-based products by integrating IMU, DoIP, and GPS support using Xilinx SDK,
+          resolving over 7+ firmware driver issues to enrich product functionality
+        - Added gPTP support for 10Base T1S PHY and TC10 support for 100/1000 Base T1 Automotive Ethernet products,
+          optimizing GPS signal reporting and enhancing system performance through the company's resource API
+        - Took the initiative to automate network traffic testing on automotive Ethernet products using Ixia's network
+         load module, reducing manual effort from 120 to 5 minutes and accelerating report generation
 
     - title: Student Technical Assistant
       institution: Facility for Rare Isotope Beams, Michigan State University, East Lansing, Michigan, US
       year: November 2022 - May 2023
       description:
-        - Description 1.
-        - Description 2.
+        - Developed an application tailored specifically for carbon charge stripper data analysis, improving the efficiency
+          of routine maintenance and research processes by automating work. As a result, time spent on data analysis
+          was reduced by 60%, enhancing the productivity of the maintenance and research teams
+        - Designed and constructed a high-pressure experimental apparatus capable of withstanding pressures up to 275
+          psig for the high-power trajectory department to aid in development of next-generation technology for linear
+          accelerators
+
 
 - title: Open Source Projects
   type: time_table
@@ -63,14 +82,21 @@
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2022
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - International Tuition Grant
+        - Deans List Fall 22
+    - year: 2023
       items:
-        - Max Planck Medal
-
+        - Walter R. Yates Memorial Scholarship
+        - Deans List Spring 23
+        - Deans List Fall 23
+    - year: 2024
+      items:
+        - Dean's Showcase of Stars 24 (Silver Award)
+        - Deans List Spring 24
+        - Deans List Fall 24
+        
 - title: Academic Interests
   type: nested_list
   contents:
@@ -82,8 +108,3 @@
       items:
         - Perception and control
         - Sensor fusion
-
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
