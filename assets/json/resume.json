@@ -24,13 +24,22 @@
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
+      "name": "PoliMOVE-MSU Autonomous Racing Team, Michigan State University, East Lansing, Michigan, US",
+      "position": "Research Assistant",
       "url": "https://example.com",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
+      "startDate": "October 2024",
+      "endDate": "Present",
       "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity"]
+      "highlights": ["Autonomous Vehicle","Machine Learning","Computer Vision","Deep Learning","ROS","Python","C++"]
+    },
+    {
+      "name": "Smart Microsystems Lab, Michigan State University, East Lansing, Michigan, US",
+      "position": "Undergraduate Researcher",
+      "url": "https://example.com",
+      "startDate": "August 2023",
+      "endDate": "Present",
+      "summary": "- Engineered an autonomous robotic blimp with 4-thruster configuration, IMU, WiFi, and LoRa connectivity;\n                    developed microcontroller PCB and firmware with micro-ROS architecture to streamline algorithm development\n                    between low-level and high-level control systems\n                  - Modeled a non-linear strain sensor with considerable time dynamics using Time Delayed Neural\n                    Network(TDNN), to capture temporal features. Resulting in a model with a R2=0.98+, and a prediction frequency\n                    of over 2kHz\n                  - Designed an 8-pressure sensor breakout board with Altium Designer to interface with a pneumatic pressure\n                    setup to measure negative and positive gauge pressures",
+      "highlights": ["Autonomous Vehicle","Machine Learning","Computer Vision","Deep Learning","ROS","Python","C++"]
     }
   ],
   "volunteer": [
