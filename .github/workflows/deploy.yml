@@ -106,12 +106,18 @@ jobs:
           folder: _site
           branch: gh-pages
 
-      - name: Read config file 📖
-        id: read_config
-        run: |
-          content=`cat _config.yml | yq -o json`
-          echo "content=$content" >> $GITHUB_OUTPUT
+      - name: Extract msu.url
+        id: extract_url
+        uses: mikefarah/yq@master
+        with:
+          cmd: yq '.msu.url' _config.yml
   
+      - name: Extract msu.baseurl
+        id: extract_baseurl
+        uses: mikefarah/yq@master
+        with:
+          cmd: yq '.msu.baseurl' _config.yml
+
       - name: Update _config.yml for MSU ⚙️
         uses: fjogeleit/yaml-update-action@main
         with:
@@ -119,8 +125,8 @@ jobs:
           valueFile: "_config.yml"
           changes: |
             {
-              "url": "${{ fromJson(steps.read_config.outputs.content).msu.url }}",
-              "baseurl": "${{ fromJson(steps.read_config.outputs.content).msu.baseurl }}"
+              "url": "${{steps.extract_url.outputs.result}}",
+              "baseurl": "${{ steps.extract_baseurl.outputs.result}}"
             }
 
       - name: Build for MSU 🏛️

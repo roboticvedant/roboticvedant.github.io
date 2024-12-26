@@ -1,6 +1,6 @@
 ---
 layout: page
-title: project 6
+title: OpenAI GYM based RL policy development
 description: a project with no image
 img:
 importance: 4
