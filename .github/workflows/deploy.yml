@@ -109,7 +109,7 @@ jobs:
       - name: Configure for MSU ⚙️
         run: |
           sed -i 's|url: https://roboticvedant.github.io|url: https://egr.msu.edu|' _config.yml
-          sed -i 's|baseurl: *$|baseurl: "/~naikveda"|' _config.yml
+          sed -i 's|baseurl: *$|baseurl: "/~naikveda/"|' _config.yml
 
       - name: Build for MSU 🏛️
         run: |
