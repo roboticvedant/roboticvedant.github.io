@@ -2,10 +2,34 @@
 
 # Run this script to deploy the app to Github Pages
 
+# Add MSU environment option
+MSU_ENV=""
+USAGE_MSG="usage: deploy [-h|--help] [-u|--user] [-s|--src SRC_BRANCH] [-d|--deploy DEPLOY_BRANCH] [--msu] [--verbose] [--no-push]"
+
+while [[ $# > 0 ]]; do
+    key="$1"
+    
+    case $key in
+        --msu)
+        MSU_ENV="msu"
+        ;;
+        # ... rest of your existing options ...
+    esac
+    shift
+done
 # Parse cmd arguments
 
 SRC_BRANCH="main"
-DEPLOY_BRANCH="gh-pages"
+# Set environment before building
+if [ -n "$MSU_ENV" ]; then
+    export JEKYLL_ENV=msu
+    DEPLOY_BRANCH="gh-pages-msu"
+else
+    export JEKYLL_ENV=production
+    DEPLOY_BRANCH="gh-pages"
+fi
+
+
 
 USAGE_MSG="usage: deploy [-h|--help] [-u|--user] [-s|--src SRC_BRANCH] [-d|--deploy DEPLOY_BRANCH] [--verbose] [--no-push]"
 
