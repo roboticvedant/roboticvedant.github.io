@@ -1,1 +1,1 @@
-User-agent: * Disallow: Sitemap: https://roboticvedant.github.io/~naikveda/sitemap.xml
+User-agent: * Disallow: Sitemap: https://roboticvedant.github.io/sitemap.xml
