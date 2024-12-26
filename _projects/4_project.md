@@ -3,7 +3,7 @@ layout: page
 title: Propioceptive Soft Robot Sensor Modelling
 description: another without an image
 img:
-importance: 3
+importance: Smart Microsystems Lab
 category: fun
 ---
 
