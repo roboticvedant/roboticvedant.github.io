@@ -2,6 +2,7 @@
 <html lang="{{ site.lang }}">
   <!-- Head -->
   <head>
+    {% include person-schema.html %}
     {% if page.redirect %}
       {% if page.redirect == true %}
         {% assign redirect = site.baseurl | append: '/' %}
