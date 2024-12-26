@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://egr.msu.edu/~naikveda/feed.xml" rel="self" type="application/atom+xml" /><link href="https://egr.msu.edu/~naikveda/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-12-26T11:08:04+00:00</updated><id>https://egr.msu.edu/~naikveda/feed.xml</id><title type="html">Vedant K. Naik ‘s Homepage</title><subtitle>I am an undergraduate student at Michigan State University, majoring in Electrical Enginerring. My mjaor areas of focus are development of autonomous robots and systems.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://egr.msu.edu/~naikveda/feed.xml" rel="self" type="application/atom+xml" /><link href="https://egr.msu.edu/~naikveda/" rel="alternate" type="text/html" hreflang="en" /><updated>2024-12-26T11:20:53+00:00</updated><id>https://egr.msu.edu/~naikveda/feed.xml</id><title type="html">Vedant K. Naik ‘s Homepage</title><subtitle>I am an undergraduate student at Michigan State University, majoring in Electrical Enginerring. My mjaor areas of focus are development of autonomous robots and systems.
 </subtitle><entry><title type="html">a post with image galleries</title><link href="https://egr.msu.edu/~naikveda/blog/2024/photo-gallery/" rel="alternate" type="text/html" title="a post with image galleries" /><published>2024-12-04T01:59:00+00:00</published><updated>2024-12-04T01:59:00+00:00</updated><id>https://egr.msu.edu/~naikveda/blog/2024/photo-gallery</id><content type="html" xml:base="https://egr.msu.edu/~naikveda/blog/2024/photo-gallery/"><![CDATA[<p>The images in this post are all zoomable, arranged into different mini-galleries using different libraries.</p>
 
 <h2 id="lightbox2"><a href="https://lokeshdhakar.com/projects/lightbox2/">Lightbox2</a></h2>
@@ -91,7 +91,7 @@ Content 2
 
 <p>With this you can generate visualizations like:</p>
 
-<ul id="log" class="tab" data-tab="c3778c8b-21c2-46cf-b85c-68634c5de263" data-name="log">
+<ul id="log" class="tab" data-tab="05d4b4aa-a247-4af4-89c5-75cb38cf063d" data-name="log">
   
       <li class="active" id="log-php">
           <a href="#">php </a>
@@ -106,7 +106,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="c3778c8b-21c2-46cf-b85c-68634c5de263" data-name="log">
+<ul class="tab-content" id="05d4b4aa-a247-4af4-89c5-75cb38cf063d" data-name="log">
   
       <li class="active">
 <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">var_dump</span><span class="p">(</span><span class="s1">'hello'</span><span class="p">);</span>
@@ -130,7 +130,7 @@ Content 2
 
 <h2 id="another-example">Another example</h2>
 
-<ul id="data-struct" class="tab" data-tab="3cbecfd8-f768-4ed0-aa65-842dd1193c76" data-name="data-struct">
+<ul id="data-struct" class="tab" data-tab="91d6cad3-d4a1-44d1-8ce7-213e688b7b68" data-name="data-struct">
   
       <li class="active" id="data-struct-yaml">
           <a href="#">yaml </a>
@@ -141,7 +141,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="3cbecfd8-f768-4ed0-aa65-842dd1193c76" data-name="data-struct">
+<ul class="tab-content" id="91d6cad3-d4a1-44d1-8ce7-213e688b7b68" data-name="data-struct">
   
       <li class="active">
 <div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">hello</span><span class="pi">:</span>
@@ -163,7 +163,7 @@ Content 2
 
 <h2 id="tabs-for-something-else">Tabs for something else</h2>
 
-<ul id="something-else" class="tab" data-tab="5cfdbc83-eeb3-46b7-aac6-83f188325e4c" data-name="something-else">
+<ul id="something-else" class="tab" data-tab="1210f542-9319-4be4-8731-d0a018f61594" data-name="something-else">
   
       <li class="active" id="something-else-text">
           <a href="#">text </a>
@@ -178,7 +178,7 @@ Content 2
       </li>
   
 </ul>
-<ul class="tab-content" id="5cfdbc83-eeb3-46b7-aac6-83f188325e4c" data-name="something-else">
+<ul class="tab-content" id="1210f542-9319-4be4-8731-d0a018f61594" data-name="something-else">
   
       <li class="active">
 <p>Regular text</p>

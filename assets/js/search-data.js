@@ -407,12 +407,7 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-project-10",
-          title: 'project 10',
-          description: "another project with an image 🎉",
-          section: "Projects",handler: () => {
-              window.location.href = "/~naikveda/projects/10_project/";
-            },},{id: "projects-autonomous-blimp-robot",
+          section: "News",},{id: "projects-autonomous-blimp-robot",
           title: 'Autonomous Blimp Robot',
           description: "with background image",
           section: "Projects",handler: () => {
@@ -442,21 +437,6 @@ ninja.data = [{
           description: "a project with no image",
           section: "Projects",handler: () => {
               window.location.href = "/~naikveda/projects/6_project/";
-            },},{id: "projects-project-7",
-          title: 'project 7',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/~naikveda/projects/7_project/";
-            },},{id: "projects-project-8",
-          title: 'project 8',
-          description: "an other project with a background image and giscus comments",
-          section: "Projects",handler: () => {
-              window.location.href = "/~naikveda/projects/8_project/";
-            },},{id: "projects-project-9",
-          title: 'project 9',
-          description: "another project with an image 🎉",
-          section: "Projects",handler: () => {
-              window.location.href = "/~naikveda/projects/9_project/";
             },},{
         id: 'social-email',
         title: 'email',
