@@ -106,10 +106,22 @@ jobs:
           folder: _site
           branch: gh-pages
 
-      - name: Configure for MSU ⚙️
+      - name: Read config file 📖
+        id: read_config
         run: |
-          sed -i 's|url: https://roboticvedant.github.io|url: https://egr.msu.edu|' _config.yml
-          sed -i 's|baseurl: *$|baseurl: "/~naikveda/"|' _config.yml
+          content=`cat _config.yml | yq -o json`
+          echo "content=$content" >> $GITHUB_OUTPUT
+  
+      - name: Update _config.yml for MSU ⚙️
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          commitChange: false
+          valueFile: "_config.yml"
+          changes: |
+            {
+              "url": "${{ fromJson(steps.read_config.outputs.content).msu.url }}",
+              "baseurl": "${{ fromJson(steps.read_config.outputs.content).msu.baseurl }}"
+            }
 
       - name: Build for MSU 🏛️
         run: |
