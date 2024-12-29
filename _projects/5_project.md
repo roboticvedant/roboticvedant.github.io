@@ -3,7 +3,7 @@ layout: page
 title: Vehicle Perception
 description: a project with a background image
 img: assets/img/1.jpg
-importance: 3
+importance: 1
 category: Personal
 ---
 Ongoing project with KITTI Dataset to get more familiar with limmitations and benefits of various sensor readings.

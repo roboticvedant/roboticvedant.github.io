@@ -3,8 +3,8 @@
   contents:
     - name: Full Name
       value: Vedant K. Naik
-    - name: Date of Birth
-      value: 7th September 2004
+    # - name: Date of Birth
+    #   value: 7th September 2004
     - name: Languages
       value: English, Hindi, Gujarati
 
@@ -27,7 +27,7 @@
   contents:
     - title: Research Assistant
       institution: PoliMOVE-MSU Autonomous Racing Team, Michigan State University, East Lansing, Michigan, US
-      year: October 2024 - Present
+      year: 
       description:
         - Description 1.
         - Description 2.
@@ -37,7 +37,7 @@
             - Sub-description 2.
     - title: Undergraduate Researcher
       institution: Smart Microsystems Lab, Michigan State University, East Lansing, Michigan, US
-      year: August 2023- Present
+      year: Aug2023-Pr.
       description:
         - Engineered an autonomous robotic blimp with 4-thruster configuration, IMU, WiFi, and LoRa connectivity;
           developed microcontroller PCB and firmware with micro-ROS architecture to streamline algorithm development
@@ -51,7 +51,7 @@
 
     - title: Embedded Systems Intern
       institution: Intrepid Control Systems, Troy, Michigan, US
-      year: May 2024 - August 2024
+      year: May2024 - Aug2024
       description:
         - Enhanced firmware of Zynq-based products by integrating IMU, DoIP, and GPS support using Xilinx SDK,
           resolving over 7+ firmware driver issues to enrich product functionality
@@ -62,7 +62,7 @@
 
     - title: Student Technical Assistant
       institution: Facility for Rare Isotope Beams, Michigan State University, East Lansing, Michigan, US
-      year: November 2022 - May 2023
+      year: Nov2022 - May2023
       description:
         - Developed an application tailored specifically for carbon charge stripper data analysis, improving the efficiency
           of routine maintenance and research processes by automating work. As a result, time spent on data analysis
@@ -72,12 +72,12 @@
           accelerators
 
 
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+# - title: Open Source Projects
+#   type: time_table
+#   contents:
+#     - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
+#       year: 2015-now
+#       description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
 
 - title: Honors and Awards
   type: time_table

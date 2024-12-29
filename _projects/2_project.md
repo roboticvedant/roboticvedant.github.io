@@ -1,83 +1,58 @@
 ---
 layout: page
 title: FOC Inverter Prototype
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
+description: Field Oriented Control (FOC) motor controller development for solar racing applications
+img: assets/img/foc_motorC_prototype.png
 importance: 2
 category: Solar Car
 giscus_comments: true
 ---
 
-Colaborators: Dashiel Matlock
+# FOC Inverter Prototype Development
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+**Colaboarators:** Dashiel Matlock
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+## Project Overview
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+This project focuses on developing a Field Oriented Control (FOC) inverter prototype for our solar racing team's electric motor system. Our goal is to create a robust and efficient motor controller using modern control techniques like Park and Clarke transforms combined with classical PI control strategies.
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+More details on current setup: https://github.com/MSU-Solar/motor_controller_schip
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+## Current Progress
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+We've achieved several key milestones in our development process:
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+1. Successfully implemented basic FOC functionality using the FNA25060 Intelligent Power Module (IPM)
+2. Currently transitioning to an STM32-based development kit for improved performance and reliability
+3. Working on implementing Park and Clarke transforms for more precise motor control
+4. Developing a classical PI controller implementation for robust speed and torque control
 
-{% raw %}
+## Technical Implementation
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+The Field Oriented Control strategy we're developing offers several advantages for our solar racing application:
 
-{% endraw %}
+- More efficient torque control compared to traditional methods
+- Better dynamic response for varying load conditions
+- Improved overall system efficiency, crucial for solar racing
+- Reduced torque ripple for smoother operation
+
+## Next Steps
+
+Our upcoming development focuses on:
+
+- Implementing advanced control algorithms on the STM32 platform
+- Optimizing the PI controller parameters for our specific application
+- Developing comprehensive testing procedures for validation
+- Creating a more compact and efficient PCB design
+
+## Technical Details
+
+The control system utilizes the following transforms:
+
+1. **Clarke Transform**: Converts three-phase currents (ia, ib, ic) to two-phase orthogonal currents (iα, iβ)
+2. **Park Transform**: Converts stationary frame quantities to rotating frame (id, iq)
+3. **PI Control**: Implements closed-loop control for both d-axis and q-axis currents
+
+## Acknowledgments
+
+This project is part of our solar racing team's ongoing efforts to improve vehicle efficiency and performance. Special thanks to all team members contributing to this development.
