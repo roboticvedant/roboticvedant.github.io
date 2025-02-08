@@ -2,7 +2,7 @@
 layout: page
 title: Autonomous Blimp Robot
 description: with background image
-img: assets/img/12.jpg
+img: assets/img/blimp_robot.png
 importance: 1
 category: Smart Microsystems Lab
 related_publications: true
