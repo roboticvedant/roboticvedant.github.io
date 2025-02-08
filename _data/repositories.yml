@@ -4,8 +4,10 @@ github_users:
 repo_description_lines_max: 2
 
 github_repos:
+  - roboticvedant/blimp_ros2_nodes
   - roboticvedant/lidar_ransac_visualize
   - roboticvedant/ROS2_turtlesim_PID_demo
   - MSU-Solar/motor_controller_schip
   - roboticvedant/blimp-controller
   - roboticvedant/bash_helpers
+ 
