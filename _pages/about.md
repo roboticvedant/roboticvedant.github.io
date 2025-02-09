@@ -13,9 +13,9 @@ profile:
     <p>College of Engineering</p>
     <p>East Lansing, MI</p>
 
-news: true
-latest_posts: true
-selected_papers: false
+news: false
+latest_posts: false
+selected_papers: true
 social: true
 ---
 
