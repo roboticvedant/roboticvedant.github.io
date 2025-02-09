@@ -66,7 +66,7 @@ ninja.data = [{
               window.location.href = "/~naikveda/projects/1_project/";
             },},{id: "projects-foc-inverter-prototype",
           title: 'FOC Inverter Prototype',
-          description: "a project with a background image and giscus comments",
+          description: "Field Oriented Control (FOC) motor controller development for solar racing applications",
           section: "Projects",handler: () => {
               window.location.href = "/~naikveda/projects/2_project/";
             },},{id: "projects-lidar-point-visualizer-processor",
@@ -74,9 +74,9 @@ ninja.data = [{
           description: "a project that redirects to another website",
           section: "Projects",handler: () => {
               window.location.href = "/~naikveda/projects/3_project/";
-            },},{id: "projects-propioceptive-soft-robot-sensor-modelling",
-          title: 'Propioceptive Soft Robot Sensor Modelling',
-          description: "another without an image",
+            },},{id: "projects-proprioceptive-soft-robot-sensor-modelling",
+          title: 'Proprioceptive Soft Robot Sensor Modelling',
+          description: "Compensation of non-linear dynamics of sensor.",
           section: "Projects",handler: () => {
               window.location.href = "/~naikveda/projects/4_project/";
             },},{id: "projects-vehicle-perception",
