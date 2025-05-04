@@ -1,17 +1,18 @@
 ---
 layout: page
 title: Autonomous Blimp Robot
-description: with background image
+description: Blimp robot modelling and control.
 img: assets/img/blimp_robot.png
 importance: 1
 category: Smart Microsystems Lab
 related_publications: true
+giscus_comments: true
 ---
+Principal Investigator: Dr. Xiaobo Tan
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
-
+Development of Blimp Robot from ground up:
+    - Developed the hardware robotic platform and the software stack to connect the blimp robot to ROS2.
+    - Modelled the 3D dynamics of the blimp robot and developed the simulator to test control algorithms before deploying on real harware. 
 To give your project a background in the portfolio page, just add the img tag to the front matter like so:
 
     ---

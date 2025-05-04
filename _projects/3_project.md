@@ -1,17 +1,16 @@
 ---
 layout: page
 title: LiDAR point visualizer/processor
-description: a project that redirects to another website
-img: assets/img/7.jpg
-redirect: https://unsplash.com
+description: LiDAR based object detection related work.
+img: assets/img/lidar_ransac.png
+# redirect: https://unsplash.com
 importance: 3
 category: PoliMOVE-MSU
+giscus_comments: true
 ---
 Collaborators: Dr. Pragyan Dahal, Ben Toaz, Mk Bashar
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+To train the Point-Pillars model for object detection (opponent car) there was a need for strong ground truth, which wasn't dirrectly available so developed an approach to fix the ballpark estimates available in existing datasets by correlating time stamped LiDAR point cloud from the ego vehicle and the GNSS Localization data from the opponent car.
 
 To give your project a background in the portfolio page, just add the img tag to the front matter like so:
 
