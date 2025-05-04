@@ -15,7 +15,6 @@
       institution: Michigan State University, East Lansing, Michigan, US
       year: 2026
       description:
-        - GPA: 4.0
         - title: Activities and Societies
           contents:
             - Tau Beta Pi Engineering Honor Society
@@ -25,12 +24,6 @@
 - title: Experience
   type: time_table
   contents:
-    - title: Research Assistant
-      institution: PoliMOVE-MSU Autonomous Racing Team, Michigan State University, East Lansing, Michigan, US
-      year: Oct24-Feb25
-      description:
-        - Was working on developing a LiDAR-based opponent detection system for the Polimove-MSU Autonomous Racing Team, leveraging the PointPillars architecture to enhance real-time object detection and tracking at speeds up to 180 mph. This involves conditioning and structuring raw LiDAR data to optimize the 3D voxel grid, enabling efficient feature extraction and improving model inference times.
-        - To complement this, I engineered an approach to generate ground truth data from the the race car dataset. This method involved conditioning the raw sensor data, pre-processing it to remove noise, and aligning it with annotated labels for high-fidelity training sets. This tailored approach ensures that the detection model is robust against varied race track environments and scenarios, leading to significant improvements in obstacle avoidance capabilities. The integration of these methodologies is aimed at advancing real-time performance and contributing to the competitive edge of the autonomous vehicle
     - title: Undergraduate Researcher
       institution: Smart Microsystems Lab, Michigan State University, East Lansing, Michigan, US
       year: Aug23-Pr.
@@ -47,8 +40,19 @@
           of over 2kHz
         - Designed an 8-pressure sensor breakout board with Altium Designer to interface with a pneumatic pressure
           setup to measure negative and positive gauge pressures
-
-
+    - title: Research Assistant
+      institution: PoliMOVE-MSU Autonomous Racing Team, Michigan State University, East Lansing, Michigan, US
+      year: Oct24-Feb25
+      description:
+        - Was working on developing a LiDAR-based opponent detection system for the Polimove-MSU Autonomous Racing Team, 
+          leveraging the PointPillars architecture to enhance real-time object detection and tracking at speeds up to 180 mph. 
+          This involves conditioning and structuring raw LiDAR data to optimize the 3D voxel grid, enabling efficient feature 
+          extraction and improving model inference times.
+        - To complement this, I engineered an approach to generate ground truth data from the the race car dataset. This method 
+          involved conditioning the raw sensor data, pre-processing it to remove noise, and aligning it with annotated labels for 
+          high-fidelity training sets. This tailored approach ensures that the detection model is robust against varied race track 
+          environments and scenarios, leading to significant improvements in obstacle avoidance capabilities. The integration of these
+          methodologies is aimed at advancing real-time performance and contributing to the competitive edge of the autonomous vehicle
     - title: Embedded Systems Intern
       institution: Intrepid Control Systems, Troy, Michigan, US
       year: May2024 - Aug2024
