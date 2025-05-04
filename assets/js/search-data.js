@@ -39,7 +39,7 @@ ninja.data = [{
           },
         },{id: "projects-autonomous-blimp-robot",
           title: 'Autonomous Blimp Robot',
-          description: "Blimp robot modelling and control.",
+          description: "From hardware to high-fidelity simulation — design, modeling, and control of an autonomous indoor blimp platform.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
             },},{id: "projects-foc-inverter-prototype",
@@ -47,14 +47,14 @@ ninja.data = [{
           description: "Field Oriented Control (FOC) motor controller development for solar racing applications",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project/";
-            },},{id: "projects-lidar-point-visualizer-processor",
-          title: 'LiDAR point visualizer/processor',
-          description: "LiDAR based object detection related work.",
+            },},{id: "projects-lidar-point-visualizer-amp-processor",
+          title: 'LiDAR Point Visualizer &amp;amp; Processor',
+          description: "Point cloud processing for object detection in autonomous racing.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_project/";
             },},{id: "projects-proprioceptive-soft-robot-sensor-modelling",
           title: 'Proprioceptive Soft Robot Sensor Modelling',
-          description: "Compensation of non-linear dynamics of sensor.",
+          description: "Compensation of nonlinear sensor dynamics in soft robotic actuators.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project/";
             },},{id: "projects-vehicle-perception",
