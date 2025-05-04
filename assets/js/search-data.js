@@ -39,7 +39,7 @@ ninja.data = [{
           },
         },{id: "projects-autonomous-blimp-robot",
           title: 'Autonomous Blimp Robot',
-          description: "with background image",
+          description: "Blimp robot modelling and control.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
             },},{id: "projects-foc-inverter-prototype",
@@ -49,7 +49,7 @@ ninja.data = [{
               window.location.href = "/projects/2_project/";
             },},{id: "projects-lidar-point-visualizer-processor",
           title: 'LiDAR point visualizer/processor',
-          description: "a project that redirects to another website",
+          description: "LiDAR based object detection related work.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_project/";
             },},{id: "projects-proprioceptive-soft-robot-sensor-modelling",
