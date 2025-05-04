@@ -15,7 +15,7 @@
       institution: Michigan State University, East Lansing, Michigan, US
       year: 2026
       description:
-        - GPA: 4.0/4.0
+        - GPA: 4.0
         - title: Activities and Societies
           contents:
             - Tau Beta Pi Engineering Honor Society
@@ -27,21 +27,21 @@
   contents:
     - title: Research Assistant
       institution: PoliMOVE-MSU Autonomous Racing Team, Michigan State University, East Lansing, Michigan, US
-      year: 
+      year: Oct24-Feb25
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
+        - Was working on developing a LiDAR-based opponent detection system for the Polimove-MSU Autonomous Racing Team, leveraging the PointPillars architecture to enhance real-time object detection and tracking at speeds up to 180 mph. This involves conditioning and structuring raw LiDAR data to optimize the 3D voxel grid, enabling efficient feature extraction and improving model inference times.
+        - To complement this, I engineered an approach to generate ground truth data from the the race car dataset. This method involved conditioning the raw sensor data, pre-processing it to remove noise, and aligning it with annotated labels for high-fidelity training sets. This tailored approach ensures that the detection model is robust against varied race track environments and scenarios, leading to significant improvements in obstacle avoidance capabilities. The integration of these methodologies is aimed at advancing real-time performance and contributing to the competitive edge of the autonomous vehicle
     - title: Undergraduate Researcher
       institution: Smart Microsystems Lab, Michigan State University, East Lansing, Michigan, US
-      year: Aug2023-Pr.
+      year: Aug23-Pr.
       description:
         - Engineered an autonomous robotic blimp with 4-thruster configuration, IMU, WiFi, and LoRa connectivity;
           developed microcontroller PCB and firmware with micro-ROS architecture to streamline algorithm development
           between low-level and high-level control systems
+        - Modelled the dynamics of the blimp and developed a simulator to test the control algorithms in a virtual
+          environment, enabling rapid prototyping and validation of control strategies before deployment on the physical
+          system. This approach significantly reduced development time and improved the reliability of the control
+          algorithms by allowing for extensive testing in a controlled environment
         - Modeled a non-linear strain sensor with considerable time dynamics using Time Delayed Neural
           Network(TDNN), to capture temporal features. Resulting in a model with a R2=0.98+, and a prediction frequency
           of over 2kHz
@@ -96,12 +96,22 @@
         - Dean's Showcase of Stars 24 (Silver Award)
         - Deans List Spring 24
         - Deans List Fall 24
+            - year: 2024
+      items:
+        - Dean's Showcase of Stars 25 (Gold Award)
+        - First Place Award in 2025 MSU Undergraduate Research and Arts Forum (URAF) Engineering and Computer Science category
+        - Deans List Spring 25
         
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Control of Autonomous Systems
+    - title: Modeling and Control
       items:
+        - Non-linear system modeling
+        - System identification
+        - Control theory
+        - Optimal control
+        - Model predictive control
         - Data driven control
         - Reinforcement learning based control policy design
     - title: Autonomous Vehicles
