@@ -78,7 +78,7 @@
   
 </title>
 <meta name="author" content="Vedant K. Naik">
-<meta name="description" content="Compensation of non-linear dynamics of sensor.">
+<meta name="description" content="Compensation of nonlinear sensor dynamics in soft robotic actuators.">
 
   <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website, robotics, vedant, embedded systems, rl, autonomy, av">
 
@@ -275,22 +275,117 @@
 <div class="post">
   <header class="post-header">
     <h1 class="post-title">Proprioceptive Soft Robot Sensor Modelling</h1>
-    <p class="post-description">Compensation of non-linear dynamics of sensor.</p>
+    <p class="post-description">Compensation of nonlinear sensor dynamics in soft robotic actuators.</p>
   </header>
 
   <article>
-    <p>Collaborators: Preston Fairchild<br>
-Principal Investigator: Dr. Xiaobo Tan</p>
+    <h3 id="principal-investigator">Principal Investigator</h3>
+<p><strong>Dr. Xiaobo Tan</strong></p>
 
-<p>This project addresses the challenges in soft robotics sensing by developing a computationally efficient compensation scheme for nonlinear, dynamic strain-resistance behavior in soft conductive rubber sensors. Using Time Delay Neural Networks (TDNN), we achieved accurate proprioceptive sensing in a soft robotic arm with an average tip positional error of less than 4% relative to the total length of the manipulator.</p>
+<h3 id="collaborator">Collaborator</h3>
+<p><strong>Preston Fairchild</strong></p>
 
-<p>For detailed technical information about the implementation and results, please refer to our publication:</p>
+<h3 id="project-summary">Project Summary</h3>
+<p>This project tackles a fundamental challenge in soft robotics — the nonlinear and time-dependent response of stretchable strain sensors. We developed a lightweight compensation model using <strong>Time Delay Neural Networks (TDNNs)</strong> to correct for <strong>hysteresis and dynamic lag</strong> in conductive rubber-based sensors.</p>
 
-<p><a href="https://iopscience.iop.org/article/10.1088/1361-665X/adb2c7" rel="external nofollow noopener" target="_blank">Naik, V.K., Fairchild, P.R. and Tan, X., 2025. “Nonlinear compensation of stretchable strain sensors with application to proprioceptive sensing of soft robotic arm.” Smart Materials and Structures, IOP Publishing (February 2025).</a></p>
+<p>The approach was applied to a soft continuum manipulator, enabling real-time <strong>proprioceptive sensing</strong> with high spatial accuracy. The compensated output achieved a <strong>mean tip position error under 4%</strong> of the manipulator’s total length — demonstrating strong promise for closed-loop control applications.</p>
+
+<hr>
+
+<h3 id="publication">Publication</h3>
+<p>📄 <em>Naik, V.K., Fairchild, P.R. and Tan, X., 2025.</em><br>
+<strong>“Nonlinear compensation of stretchable strain sensors with application to proprioceptive sensing of soft robotic arm.”</strong><br>
+<em>Smart Materials and Structures, IOP Publishing.</em><br>
+<a href="https://iopscience.iop.org/article/10.1088/1361-665X/adb2c7" rel="external nofollow noopener" target="_blank">Read the full paper →</a></p>
+
+<hr>
+
+<div class="row justify-content-sm-center">
+  <div class="col-sm-6 mt-3 mt-md-0">
+    
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/soft_robot_arm-480.webp 480w,/~naikveda/assets/img/soft_robot_arm-800.webp 800w,/~naikveda/assets/img/soft_robot_arm-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+    
+    <img src="/~naikveda/assets/img/soft_robot_arm.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Soft Robotic Manipulator with Integrated Sensor" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+  </div>
+  <div class="col-sm-6 mt-3 mt-md-0">
+    
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/publication_preview/tip-position-soft-robot-480.webp 480w,/~naikveda/assets/img/publication_preview/tip-position-soft-robot-800.webp 800w,/~naikveda/assets/img/publication_preview/tip-position-soft-robot-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+    
+    <img src="/~naikveda/assets/img/publication_preview/tip-position-soft-robot.gif" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Predicted vs Ground Truth Sensor Output Using TDNN" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+  </div>
+</div>
+
+<div class="caption">
+  Left: Soft arm prototype with embedded stretchable sensor. Right: TDNN-based compensation showing high-fidelity reconstruction of joint motion.
+</div>
+
 
   </article>
 
   
+
+  
+    <div id="giscus_thread" style="max-width: 930px; margin: 0 auto;">
+  
+    <script>
+      let giscusTheme = determineComputedTheme();
+      let giscusAttributes = {
+        src: 'https://giscus.app/client.js',
+        'data-repo': 'roboticvedant/roboticvedant.github.io',
+        'data-repo-id': 'R_kgDOMHCZ2Q',
+        'data-category': 'General',
+        'data-category-id': 'DIC_kwDOMHCZ2c4Cmzsf',
+        'data-mapping': 'title',
+        'data-strict': '1',
+        'data-reactions-enabled': '1',
+        'data-emit-metadata': '0',
+        'data-input-position': 'bottom',
+        'data-theme': giscusTheme,
+        'data-lang': 'en',
+        crossorigin: 'anonymous',
+        async: '',
+      };
+
+      let giscusScript = document.createElement('script');
+      Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
+      document.getElementById('giscus_thread').appendChild(giscusScript);
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://giscus.app/?ref_noscript" rel="external nofollow noopener" target="_blank">comments powered by giscus.</a>
+</noscript>
+  
+</div>
 
   
 </div>
