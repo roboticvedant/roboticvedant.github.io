@@ -3,7 +3,7 @@ layout: page
 title: OpenAI GYM based RL policy development
 description: a project with no image
 img:
-importance: 4
+importance: 1
 category: Personal
 ---
 
