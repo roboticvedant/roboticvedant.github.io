@@ -31,7 +31,7 @@ The approach was applied to a soft continuum manipulator, enabling real-time **p
 
 <div class="row justify-content-sm-center">
   <div class="col-sm-6 mt-3 mt-md-0">
-    {% include figure.liquid loading="eager" path="assets/img/soft_robot_arm.png" title="Soft Robotic Manipulator with Integrated Sensor" class="img-fluid rounded z-depth-1" %}
+    {% include figure.liquid loading="eager" path="assets/img/soft_robot.png" title="Soft Robotic Manipulator with Integrated Sensor" class="img-fluid rounded z-depth-1" %}
   </div>
   <div class="col-sm-6 mt-3 mt-md-0">
     {% include figure.liquid loading="eager" path="assets/img/publication_preview/tip-position-soft-robot.gif" title="Predicted vs Ground Truth Sensor Output Using TDNN" class="img-fluid rounded z-depth-1" %}
