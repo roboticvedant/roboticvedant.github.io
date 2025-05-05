@@ -285,114 +285,6 @@
 <h3 id="project-summary">Project Summary</h3>
 <p>To support the training of the <strong>PointPillars</strong> model for opponent car detection, accurate 3D ground truth was required. Since precise object labels were unavailable, a custom post-processing pipeline was developed to refine the rough bounding box estimates. This was achieved by <strong>synchronizing ego-vehicle LiDAR point clouds</strong> with <strong>opponent GNSS localization data</strong>, producing high-confidence, time-aligned labels.</p>
 
-<hr>
-<!-- 
-<div class="row">
-  <div class="col-sm mt-3 mt-md-0">
-    
-
-
-
-<figure
-  
->
-  <picture>
-    <!-- Auto scaling with imagemagick -->
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!--
-  See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
-  https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
---&gt;
-
-  &lt;source
-    class="responsive-img-srcset"
-    
-      srcset="/~naikveda/assets/img/lidar_overlay-480.webp 480w,/~naikveda/assets/img/lidar_overlay-800.webp 800w,/~naikveda/assets/img/lidar_overlay-1400.webp 1400w,"
-      type="image/webp"
-    
-    
-      sizes="95vw"
-    
-  &gt;
-
-&lt;img
-  src="/~naikveda/assets/img/lidar_overlay.png"
-  
-    class="img-fluid rounded z-depth-1"
-  
-  
-    width="100%"
-  
-  
-    height="auto"
-  
-  
-  
-  
-    title="Raw Point Cloud with Opponent Position Overlay"
-  
-  
-  
-    loading="eager"
-  
-  onerror="this.onerror=null; $('.responsive-img-srcset').remove();"
-&gt;
-</code></pre></div></div>
-<p>&lt;/picture&gt;</p>
-
-<p>&lt;/figure&gt;</p>
-
-<p>&lt;/div&gt;</p>
-<div class="col-sm mt-3 mt-md-0">
-    
-
-
-
-<figure>
-  <picture>
-    <!-- Auto scaling with imagemagick -->
-    <!--
-      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
-      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
-    -->
-    
-      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/lidar_bbox_fix-480.webp 480w,/~naikveda/assets/img/lidar_bbox_fix-800.webp 800w,/~naikveda/assets/img/lidar_bbox_fix-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
-    
-    <img src="/~naikveda/assets/img/lidar_bbox_fix.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Bounding Box Refinement" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-  </picture>
-
-  
-</figure>
-
-  </div>
-<div class="col-sm mt-3 mt-md-0">
-    
-
-
-
-<figure>
-  <picture>
-    <!-- Auto scaling with imagemagick -->
-    <!--
-      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
-      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
-    -->
-    
-      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/lidar_result-480.webp 480w,/~naikveda/assets/img/lidar_result-800.webp 800w,/~naikveda/assets/img/lidar_result-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
-    
-    <img src="/~naikveda/assets/img/lidar_result.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Final Training Sample" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-  </picture>
-
-  
-</figure>
-
-  </div>
-<p>&lt;/div&gt;</p>
-
-<div class="caption">
-  Left to right: Raw LiDAR overlay, refined bounding box using GNSS data, and final processed output for model training.
-</div>
-<p>–&gt;</p>
-
   </article>
 
   
@@ -445,7 +337,7 @@
 
       
       
-        Last updated: May 04, 2025.
+        Last updated: May 05, 2025.
       
     </div>
   </footer>
