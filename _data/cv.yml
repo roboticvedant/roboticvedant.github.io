@@ -26,10 +26,16 @@
   contents:
     - title: ADAS Sensor Hardware Engineer Intern
       institution: Lucid Motors, Newark, California, US
-      year: May2025 - Pr.
+      year: May25 - Aug25
       description:
-        - To be updated.
-      
+        - Engineered a camera data collection system for the Lucid Gravity, for easy debugging and data collection for all cameras also providing an I2C
+          interface for the camera to communicate with host computer for rapid prototyping and testing.
+        - Developed the testing setup for depth estimation sensing system for next generaltion of Lucid vehicles, utilizing a cost effective way to repurpose
+          existing camera packaging locations.
+        - Root caused and resolved 5+ production camera issues by analysing the camera sensor level signals and also contributed with resolving the ISP
+          issues by analysing the raw camera data and collaborating with the external ISP vendor, Image sensor manufacturer, module integrator and internal
+          teams to resolve the issues.
+        # - Supported the development of 
     - title: Undergraduate Researcher
       institution: Smart Microsystems Lab, Michigan State University, East Lansing, Michigan, US
       year: Aug23-Pr.
@@ -61,7 +67,7 @@
           methodologies is aimed at advancing real-time performance and contributing to the competitive edge of the autonomous vehicle
     - title: Embedded Systems Intern
       institution: Intrepid Control Systems, Troy, Michigan, US
-      year: May2024 - Aug2024
+      year: May24 - Aug24
       description:
         - Enhanced firmware of Zynq-based products by integrating IMU, DoIP, and GPS support using Xilinx SDK,
           resolving over 7+ firmware driver issues to enrich product functionality
@@ -72,7 +78,7 @@
 
     - title: Student Technical Assistant
       institution: Facility for Rare Isotope Beams, Michigan State University, East Lansing, Michigan, US
-      year: Nov2022 - May2023
+      year: Nov22 - May23
       description:
         - Developed an application tailored specifically for carbon charge stripper data analysis, improving the efficiency
           of routine maintenance and research processes by automating work. As a result, time spent on data analysis
@@ -111,7 +117,8 @@
         - Dean's Showcase of Stars 25 (Gold Award)
         - First Place Award in 2025 MSU Undergraduate Research and Arts Forum (URAF) Engineering and Computer Science category
         - Deans List Spring 25
-        
+        - Giffels, Ray F Memorial Engineering Scholarship
+
 - title: Academic Interests
   type: nested_list
   contents:
@@ -123,8 +130,16 @@
         - Optimal control
         - Model predictive control
         - Data driven control
+        - Adaptive control
         - Reinforcement learning based control policy design
+        - Data-driven control
+        - Model agnostic control
+
     - title: Autonomous Vehicles
       items:
         - Perception and control
         - Sensor fusion
+        - Path planning
+        - Decision making
+        - Vehicle dynamics
+        - Human-robot interaction
