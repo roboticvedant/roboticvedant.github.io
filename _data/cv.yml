@@ -35,7 +35,7 @@
         - Root caused and resolved 5+ production camera issues by analysing the camera sensor level signals and also contributed with resolving the ISP
           issues by analysing the raw camera data and collaborating with the external ISP vendor, Image sensor manufacturer, module integrator and internal
           teams to resolve the issues.
-        # - Supported the development of 
+        # - Supported the development of
     - title: Undergraduate Researcher
       institution: Smart Microsystems Lab, Michigan State University, East Lansing, Michigan, US
       year: Aug23-Pr.
@@ -56,13 +56,13 @@
       institution: PoliMOVE-MSU Autonomous Racing Team, Michigan State University, East Lansing, Michigan, US
       year: Oct24-Feb25
       description:
-        - Was working on developing a LiDAR-based opponent detection system for the Polimove-MSU Autonomous Racing Team, 
-          leveraging the PointPillars architecture to enhance real-time object detection and tracking at speeds up to 180 mph. 
-          This involves conditioning and structuring raw LiDAR data to optimize the 3D voxel grid, enabling efficient feature 
+        - Was working on developing a LiDAR-based opponent detection system for the Polimove-MSU Autonomous Racing Team,
+          leveraging the PointPillars architecture to enhance real-time object detection and tracking at speeds up to 180 mph.
+          This involves conditioning and structuring raw LiDAR data to optimize the 3D voxel grid, enabling efficient feature
           extraction and improving model inference times.
-        - To complement this, I engineered an approach to generate ground truth data from the the race car dataset. This method 
-          involved conditioning the raw sensor data, pre-processing it to remove noise, and aligning it with annotated labels for 
-          high-fidelity training sets. This tailored approach ensures that the detection model is robust against varied race track 
+        - To complement this, I engineered an approach to generate ground truth data from the the race car dataset. This method
+          involved conditioning the raw sensor data, pre-processing it to remove noise, and aligning it with annotated labels for
+          high-fidelity training sets. This tailored approach ensures that the detection model is robust against varied race track
           environments and scenarios, leading to significant improvements in obstacle avoidance capabilities. The integration of these
           methodologies is aimed at advancing real-time performance and contributing to the competitive edge of the autonomous vehicle
     - title: Embedded Systems Intern
@@ -74,7 +74,7 @@
         - Added gPTP support for 10Base T1S PHY and TC10 support for 100/1000 Base T1 Automotive Ethernet products,
           optimizing GPS signal reporting and enhancing system performance through the company's resource API
         - Took the initiative to automate network traffic testing on automotive Ethernet products using Ixia's network
-         load module, reducing manual effort from 120 to 5 minutes and accelerating report generation
+          load module, reducing manual effort from 120 to 5 minutes and accelerating report generation
 
     - title: Student Technical Assistant
       institution: Facility for Rare Isotope Beams, Michigan State University, East Lansing, Michigan, US
@@ -86,7 +86,6 @@
         - Designed and constructed a high-pressure experimental apparatus capable of withstanding pressures up to 275
           psig for the high-power trajectory department to aid in development of next-generation technology for linear
           accelerators
-
 
 # - title: Open Source Projects
 #   type: time_table

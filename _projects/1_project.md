@@ -9,13 +9,16 @@ related_publications: true
 giscus_comments: true
 ---
 
-### Principal Investigator  
+### Principal Investigator
+
 **Dr. Xiaobo Tan**
 
-### Project Overview  
+### Project Overview
+
 The **Autonomous Blimp Robot** project at the Smart Microsystems Lab involves the development of a fully integrated indoor aerial platform. The blimp is designed to be low-noise, safe, and highly maneuverable — ideal for real-time control research and soft robotic exploration.
 
 **Highlights of the project:**
+
 - 🛠️ **Hardware Development**  
   Designed and manufactured a modular robotic blimp platform, equipped with vectored thrust actuation and onboard sensing.
 

@@ -111,7 +111,7 @@ jobs:
         uses: mikefarah/yq@master
         with:
           cmd: yq '.msu.url' _config.yml
-  
+
       - name: Extract msu.baseurl
         id: extract_baseurl
         uses: mikefarah/yq@master

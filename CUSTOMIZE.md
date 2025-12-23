@@ -21,10 +21,9 @@ The project is structured as follows, focusing on the main components that you w
 ├── 📂 _includes/: contains code parts that are included in the main HTML file
 │   └── 📄 news.liquid: defines the news section layout in the about page
 ├── 📂 _layouts/: contains the layouts to choose from in the frontmatter of the Markdown files
-├── 📂 _news/: the news that will appear in the news section in the about page
 ├── 📂 _pages/: contains the pages of the website
 |   └── 📄 404.md: 404 page (page not found)
-├── 📂 _posts/: contains the blog posts
+<!-- optional: _news/ and _posts/ are not required by this site unless you use news or blog features -->
 ├── 📂 _projects/: contains the projects
 └── 📂 _sass/: contains the SASS files that define the style of the website
     ├── 📄 _base.scss: base style of the website
@@ -59,7 +58,7 @@ You can create new pages by adding new Markdown files in the [\_pages](_pages/) 
 
 ## Creating new blog posts
 
-To create a new blog post, you can add a new Markdown file in the [\_posts](_posts/) directory. The [name of the file must follow](https://jekyllrb.com/docs/posts/#creating-posts) the format `YYYY-MM-DD-title.md`. The easiest way to do this is to copy an existing blog post and modify it. Note that some blog posts have optional fields in the [frontmatter](https://jekyllrb.com/docs/front-matter/) that are used to enable specific behaviors or functions.
+To create a new blog post, you can add a new Markdown file in the `_posts/` directory (if you use the blog feature). The [name of the file must follow](https://jekyllrb.com/docs/posts/#creating-posts) the format `YYYY-MM-DD-title.md`. The easiest way to do this is to copy an existing blog post and modify it. Note that some blog posts have optional fields in the [frontmatter](https://jekyllrb.com/docs/front-matter/) that are used to enable specific behaviors or functions.
 
 If you want to create blog posts that are not ready to be published, but you want to track it with git, you can create a [\_drafts](https://jekyllrb.com/docs/posts/#drafts) directory and store them there.
 
@@ -69,7 +68,7 @@ You can create new projects by adding new Markdown files in the [\_projects](_pr
 
 ## Adding some news
 
-You can add news in the about page by adding new Markdown files in the [\_news](_news/) directory. There are currently two types of news: inline news and news with a link. News with a link take you to a new page while inline news are displayed directly in the about page. The easiest way to create yours is to copy an existing news and modify it.
+You can add news in the about page by adding new Markdown files in the `_news/` directory (if you use the news feature). There are currently two types of news: inline news and news with a link. News with a link take you to a new page while inline news are displayed directly in the about page. The easiest way to create yours is to copy an existing news and modify it.
 
 ## Adding Collections
 

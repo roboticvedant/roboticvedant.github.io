@@ -24,6 +24,7 @@ I am an undergraduate student at Michigan State University, majoring in Electric
 ## Research Interests
 
 My research interests span across several exciting areas:
+
 - **Embedded Systems & Robotics**: Developing firmware for autonomous systems and working with various microcontroller platforms
 - **Control Systems**: Implementing advanced control algorithms for robotic applications
 - **Machine Learning**: Applying reinforcement learning and neural networks to real-world engineering problems
@@ -39,6 +40,7 @@ I'm currently involved in several cutting-edge projects:
 ## Technical Background
 
 I have extensive experience in:
+
 - PCB design and firmware development using Altium Designer and Xilinx SDK
 - Programming in C, C++, Python, and MATLAB
 - Robotics frameworks including ROS 2 and micro-ROS
