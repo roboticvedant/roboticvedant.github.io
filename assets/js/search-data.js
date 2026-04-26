@@ -67,6 +67,11 @@ ninja.data = [{
           description: "a project with no image",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_project/";
+            },},{id: "projects-traction-inverter-foc-v2",
+          title: 'Traction Inverter (FOC v2)',
+          description: "Second-generation SiC traction inverter for solar racing — improved power stage, control firmware, and system integration.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/7_project/";
             },},{
         id: 'social-email',
         title: 'email',
