@@ -132,12 +132,12 @@
   
   
     
-      LiDAR Point Visualizer &amp; Processor | Vedant K. Naik 's Homepage
+      Proprioceptive Soft Robot Sensor Modelling | Vedant K. Naik 's Homepage
     
   
 </title>
 <meta name="author" content="Vedant K. Naik">
-<meta name="description" content="Point cloud processing for object detection in autonomous racing.">
+<meta name="description" content="Compensation of nonlinear sensor dynamics in soft robotic actuators.">
 
   <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website, robotics, vedant, embedded systems, rl, autonomy, av">
 
@@ -174,7 +174,7 @@
   <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A4%96&lt;/text&gt;&lt;/svg&gt;">
 
 <link rel="stylesheet" href="/~naikveda/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="https://egr.msu.edu/~naikveda/projects/3_project/">
+<link rel="canonical" href="https://egr.msu.edu/~naikveda/projects/soft-robot-sensor-modelling/">
 
 <!-- Dark Mode -->
 <script src="/~naikveda/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
@@ -333,18 +333,86 @@
 
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">LiDAR Point Visualizer &amp; Processor</h1>
-    <p class="post-description">Point cloud processing for object detection in autonomous racing.</p>
+    <h1 class="post-title">Proprioceptive Soft Robot Sensor Modelling</h1>
+    <p class="post-description">Compensation of nonlinear sensor dynamics in soft robotic actuators.</p>
   </header>
 
   <article>
-    <h3 id="collaborators">Collaborators</h3>
+    <h3 id="principal-investigator">Principal Investigator</h3>
 
-<p><strong>Dr. Pragyan Dahal</strong>, <strong>Ben Toaz</strong>, <strong>Mk Bashar</strong></p>
+<p><strong>Dr. Xiaobo Tan</strong></p>
+
+<h3 id="collaborator">Collaborator</h3>
+
+<p><strong>Preston Fairchild</strong></p>
 
 <h3 id="project-summary">Project Summary</h3>
 
-<p>To support the training of the <strong>PointPillars</strong> model for opponent car detection, accurate 3D ground truth was required. Since precise object labels were unavailable, a custom post-processing pipeline was developed to refine the rough bounding box estimates. This was achieved by <strong>synchronizing ego-vehicle LiDAR point clouds</strong> with <strong>opponent GNSS localization data</strong>, producing high-confidence, time-aligned labels.</p>
+<p>This project tackles a fundamental challenge in soft robotics — the nonlinear and time-dependent response of stretchable strain sensors. We developed a lightweight compensation model using <strong>Time Delay Neural Networks (TDNNs)</strong> to correct for <strong>hysteresis and dynamic lag</strong> in conductive rubber-based sensors.</p>
+
+<p>The approach was applied to a soft continuum manipulator, enabling real-time <strong>proprioceptive sensing</strong> with high spatial accuracy. The compensated output achieved a <strong>mean tip position error under 4%</strong> of the manipulator’s total length — demonstrating strong promise for closed-loop control applications.</p>
+
+<hr>
+
+<h3 id="publication">Publication</h3>
+
+<p>📄 <em>Naik, V.K., Fairchild, P.R. and Tan, X., 2025.</em><br>
+<strong>“Nonlinear compensation of stretchable strain sensors with application to proprioceptive sensing of soft robotic arm.”</strong><br>
+<em>Smart Materials and Structures, IOP Publishing.</em><br>
+<a href="https://iopscience.iop.org/article/10.1088/1361-665X/adb2c7" rel="external nofollow noopener" target="_blank">Read the full paper →</a></p>
+
+<hr>
+
+<div class="row justify-content-sm-center">
+  <div class="col-sm-6 mt-3 mt-md-0">
+    
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/soft_robot-480.webp 480w,/~naikveda/assets/img/soft_robot-800.webp 800w,/~naikveda/assets/img/soft_robot-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+    
+    <img src="/~naikveda/assets/img/soft_robot.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Soft Robotic Manipulator with Integrated Sensor" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+  </div>
+  <div class="col-sm-6 mt-3 mt-md-0">
+    
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/publication_preview/tip-position-soft-robot-480.webp 480w,/~naikveda/assets/img/publication_preview/tip-position-soft-robot-800.webp 800w,/~naikveda/assets/img/publication_preview/tip-position-soft-robot-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+    
+    <img src="/~naikveda/assets/img/publication_preview/tip-position-soft-robot.gif" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Predicted vs Ground Truth Sensor Output Using TDNN" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+  </div>
+</div>
+
+<div class="caption">
+  Left: Soft arm prototype with embedded stretchable sensor. Right: TDNN-based compensation showing high-fidelity reconstruction of joint motion.
+</div>
 
   </article>
 

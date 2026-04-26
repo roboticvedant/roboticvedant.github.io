@@ -132,12 +132,12 @@
   
   
     
-      Proprioceptive Soft Robot Sensor Modelling | Vedant K. Naik 's Homepage
+      FOC Inverter Prototype | Vedant K. Naik 's Homepage
     
   
 </title>
 <meta name="author" content="Vedant K. Naik">
-<meta name="description" content="Compensation of nonlinear sensor dynamics in soft robotic actuators.">
+<meta name="description" content="Field Oriented Control (FOC) motor controller development for solar racing applications">
 
   <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website, robotics, vedant, embedded systems, rl, autonomy, av">
 
@@ -174,7 +174,7 @@
   <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A4%96&lt;/text&gt;&lt;/svg&gt;">
 
 <link rel="stylesheet" href="/~naikveda/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="https://egr.msu.edu/~naikveda/projects/4_project/">
+<link rel="canonical" href="https://egr.msu.edu/~naikveda/projects/foc-inverter-prototype/">
 
 <!-- Dark Mode -->
 <script src="/~naikveda/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
@@ -333,86 +333,70 @@
 
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">Proprioceptive Soft Robot Sensor Modelling</h1>
-    <p class="post-description">Compensation of nonlinear sensor dynamics in soft robotic actuators.</p>
+    <h1 class="post-title">FOC Inverter Prototype</h1>
+    <p class="post-description">Field Oriented Control (FOC) motor controller development for solar racing applications</p>
   </header>
 
   <article>
-    <h3 id="principal-investigator">Principal Investigator</h3>
+    <h1 id="foc-inverter-prototype-development">FOC Inverter Prototype Development</h1>
 
-<p><strong>Dr. Xiaobo Tan</strong></p>
+<p><strong>Colaboarators:</strong> Dashiel Matlock</p>
 
-<h3 id="collaborator">Collaborator</h3>
+<h2 id="project-overview">Project Overview</h2>
 
-<p><strong>Preston Fairchild</strong></p>
+<p>This project focuses on developing a Field Oriented Control (FOC) inverter prototype for our solar racing team’s electric motor system. Our goal is to create a robust and efficient motor controller using modern control techniques like Park and Clarke transforms combined with classical PI control strategies.</p>
 
-<h3 id="project-summary">Project Summary</h3>
+<p>More details on current setup: https://github.com/MSU-Solar/motor_controller_schip</p>
 
-<p>This project tackles a fundamental challenge in soft robotics — the nonlinear and time-dependent response of stretchable strain sensors. We developed a lightweight compensation model using <strong>Time Delay Neural Networks (TDNNs)</strong> to correct for <strong>hysteresis and dynamic lag</strong> in conductive rubber-based sensors.</p>
+<h2 id="current-progress">Current Progress</h2>
 
-<p>The approach was applied to a soft continuum manipulator, enabling real-time <strong>proprioceptive sensing</strong> with high spatial accuracy. The compensated output achieved a <strong>mean tip position error under 4%</strong> of the manipulator’s total length — demonstrating strong promise for closed-loop control applications.</p>
+<p>We’ve achieved several key milestones in our development process:</p>
 
-<hr>
+<ol>
+  <li>Successfully implemented basic FOC functionality using the FNA25060 Intelligent Power Module (IPM)</li>
+  <li>Currently transitioning to an STM32-based development kit for improved performance and reliability</li>
+  <li>Working on implementing Park and Clarke transforms for more precise motor control</li>
+  <li>Developing a classical PI controller implementation for robust speed and torque control</li>
+</ol>
 
-<h3 id="publication">Publication</h3>
+<h2 id="technical-implementation">Technical Implementation</h2>
 
-<p>📄 <em>Naik, V.K., Fairchild, P.R. and Tan, X., 2025.</em><br>
-<strong>“Nonlinear compensation of stretchable strain sensors with application to proprioceptive sensing of soft robotic arm.”</strong><br>
-<em>Smart Materials and Structures, IOP Publishing.</em><br>
-<a href="https://iopscience.iop.org/article/10.1088/1361-665X/adb2c7" rel="external nofollow noopener" target="_blank">Read the full paper →</a></p>
+<p>The Field Oriented Control strategy we’re developing offers several advantages for our solar racing application:</p>
 
-<hr>
+<ul>
+  <li>More efficient torque control compared to traditional methods</li>
+  <li>Better dynamic response for varying load conditions</li>
+  <li>Improved overall system efficiency, crucial for solar racing</li>
+  <li>Reduced torque ripple for smoother operation</li>
+</ul>
 
-<div class="row justify-content-sm-center">
-  <div class="col-sm-6 mt-3 mt-md-0">
-    
+<h2 id="next-steps">Next Steps</h2>
 
+<p>Our upcoming development focuses on:</p>
 
+<ul>
+  <li>Implementing advanced control algorithms on the STM32 platform</li>
+  <li>Optimizing the PI controller parameters for our specific application</li>
+  <li>Developing comprehensive testing procedures for validation</li>
+  <li>Creating a more compact and efficient PCB design</li>
+</ul>
 
-<figure>
-  <picture>
-    <!-- Auto scaling with imagemagick -->
-    <!--
-      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
-      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
-    -->
-    
-      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/soft_robot-480.webp 480w,/~naikveda/assets/img/soft_robot-800.webp 800w,/~naikveda/assets/img/soft_robot-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
-    
-    <img src="/~naikveda/assets/img/soft_robot.png" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Soft Robotic Manipulator with Integrated Sensor" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-  </picture>
+<h2 id="technical-details">Technical Details</h2>
 
-  
-</figure>
+<p>The control system utilizes the following transforms:</p>
 
-  </div>
-  <div class="col-sm-6 mt-3 mt-md-0">
-    
+<ol>
+  <li>
+<strong>Clarke Transform</strong>: Converts three-phase currents (ia, ib, ic) to two-phase orthogonal currents (iα, iβ)</li>
+  <li>
+<strong>Park Transform</strong>: Converts stationary frame quantities to rotating frame (id, iq)</li>
+  <li>
+<strong>PI Control</strong>: Implements closed-loop control for both d-axis and q-axis currents</li>
+</ol>
 
+<h2 id="acknowledgments">Acknowledgments</h2>
 
-
-<figure>
-  <picture>
-    <!-- Auto scaling with imagemagick -->
-    <!--
-      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
-      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
-    -->
-    
-      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/publication_preview/tip-position-soft-robot-480.webp 480w,/~naikveda/assets/img/publication_preview/tip-position-soft-robot-800.webp 800w,/~naikveda/assets/img/publication_preview/tip-position-soft-robot-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
-    
-    <img src="/~naikveda/assets/img/publication_preview/tip-position-soft-robot.gif" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Predicted vs Ground Truth Sensor Output Using TDNN" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
-  </picture>
-
-  
-</figure>
-
-  </div>
-</div>
-
-<div class="caption">
-  Left: Soft arm prototype with embedded stretchable sensor. Right: TDNN-based compensation showing high-fidelity reconstruction of joint motion.
-</div>
+<p>This project is part of our solar racing team’s ongoing efforts to improve vehicle efficiency and performance. Special thanks to all team members contributing to this development.</p>
 
   </article>
 

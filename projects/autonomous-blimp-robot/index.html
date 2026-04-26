@@ -132,12 +132,12 @@
   
   
     
-      FOC Inverter Prototype | Vedant K. Naik 's Homepage
+      Autonomous Blimp Robot | Vedant K. Naik 's Homepage
     
   
 </title>
 <meta name="author" content="Vedant K. Naik">
-<meta name="description" content="Field Oriented Control (FOC) motor controller development for solar racing applications">
+<meta name="description" content="From hardware to high-fidelity simulation — design, modeling, and control of an autonomous indoor blimp platform.">
 
   <meta name="keywords" content="jekyll, jekyll-theme, academic-website, portfolio-website, robotics, vedant, embedded systems, rl, autonomy, av">
 
@@ -174,7 +174,7 @@
   <link rel="shortcut icon" href="data:image/svg+xml,&lt;svg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%20100%20100%22&gt;&lt;text%20y=%22.9em%22%20font-size=%2290%22&gt;%F0%9F%A4%96&lt;/text&gt;&lt;/svg&gt;">
 
 <link rel="stylesheet" href="/~naikveda/assets/css/main.css?d41d8cd98f00b204e9800998ecf8427e">
-<link rel="canonical" href="https://egr.msu.edu/~naikveda/projects/2_project/">
+<link rel="canonical" href="https://egr.msu.edu/~naikveda/projects/autonomous-blimp-robot/">
 
 <!-- Dark Mode -->
 <script src="/~naikveda/assets/js/theme.js?9a0c749ec5240d9cda97bc72359a72c0"></script>
@@ -333,73 +333,53 @@
 
 <div class="post">
   <header class="post-header">
-    <h1 class="post-title">FOC Inverter Prototype</h1>
-    <p class="post-description">Field Oriented Control (FOC) motor controller development for solar racing applications</p>
+    <h1 class="post-title">Autonomous Blimp Robot</h1>
+    <p class="post-description">From hardware to high-fidelity simulation — design, modeling, and control of an autonomous indoor blimp platform.</p>
   </header>
 
   <article>
-    <h1 id="foc-inverter-prototype-development">FOC Inverter Prototype Development</h1>
+    <h3 id="principal-investigator">Principal Investigator</h3>
 
-<p><strong>Colaboarators:</strong> Dashiel Matlock</p>
+<p><strong>Dr. Xiaobo Tan</strong></p>
 
-<h2 id="project-overview">Project Overview</h2>
+<h3 id="project-overview">Project Overview</h3>
 
-<p>This project focuses on developing a Field Oriented Control (FOC) inverter prototype for our solar racing team’s electric motor system. Our goal is to create a robust and efficient motor controller using modern control techniques like Park and Clarke transforms combined with classical PI control strategies.</p>
+<p>The <strong>Autonomous Blimp Robot</strong> project at the Smart Microsystems Lab involves the development of a fully integrated indoor aerial platform. The blimp is designed to be low-noise, safe, and highly maneuverable — ideal for real-time control research and soft robotic exploration.</p>
 
-<p>More details on current setup: https://github.com/MSU-Solar/motor_controller_schip</p>
-
-<h2 id="current-progress">Current Progress</h2>
-
-<p>We’ve achieved several key milestones in our development process:</p>
-
-<ol>
-  <li>Successfully implemented basic FOC functionality using the FNA25060 Intelligent Power Module (IPM)</li>
-  <li>Currently transitioning to an STM32-based development kit for improved performance and reliability</li>
-  <li>Working on implementing Park and Clarke transforms for more precise motor control</li>
-  <li>Developing a classical PI controller implementation for robust speed and torque control</li>
-</ol>
-
-<h2 id="technical-implementation">Technical Implementation</h2>
-
-<p>The Field Oriented Control strategy we’re developing offers several advantages for our solar racing application:</p>
+<p><strong>Highlights of the project:</strong></p>
 
 <ul>
-  <li>More efficient torque control compared to traditional methods</li>
-  <li>Better dynamic response for varying load conditions</li>
-  <li>Improved overall system efficiency, crucial for solar racing</li>
-  <li>Reduced torque ripple for smoother operation</li>
+  <li>
+    <p>🛠️ <strong>Hardware Development</strong><br>
+Designed and manufactured a modular robotic blimp platform, equipped with vectored thrust actuation and onboard sensing.</p>
+  </li>
+  <li>
+    <p>🤖 <strong>ROS2 Integration</strong><br>
+Developed the firmware to interface with micro-ros,and connect the blimp platform with <strong>ROS2</strong>, enabling real-time communication, visualization, and control. Making it modular to prototype and use high level control and localization stacks.</p>
+  </li>
+  <li>
+    <p>🧠 <strong>Dynamics Modeling &amp; Simulation</strong><br>
+Derived full <strong>6DOF nonlinear dynamics</strong> using Euler–Lagrange formalism and implemented a physics-based simulator to validate control algorithms in silico.</p>
+  </li>
 </ul>
 
-<h2 id="next-steps">Next Steps</h2>
+<style>
+.caption {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+</style>
 
-<p>Our upcoming development focuses on:</p>
-
-<ul>
-  <li>Implementing advanced control algorithms on the STM32 platform</li>
-  <li>Optimizing the PI controller parameters for our specific application</li>
-  <li>Developing comprehensive testing procedures for validation</li>
-  <li>Creating a more compact and efficient PCB design</li>
-</ul>
-
-<h2 id="technical-details">Technical Details</h2>
-
-<p>The control system utilizes the following transforms:</p>
-
-<ol>
-  <li>
-<strong>Clarke Transform</strong>: Converts three-phase currents (ia, ib, ic) to two-phase orthogonal currents (iα, iβ)</li>
-  <li>
-<strong>Park Transform</strong>: Converts stationary frame quantities to rotating frame (id, iq)</li>
-  <li>
-<strong>PI Control</strong>: Implements closed-loop control for both d-axis and q-axis currents</li>
-</ol>
-
-<h2 id="acknowledgments">Acknowledgments</h2>
-
-<p>This project is part of our solar racing team’s ongoing efforts to improve vehicle efficiency and performance. Special thanks to all team members contributing to this development.</p>
 
   </article>
 
+  
+    <h2>References</h2>
+    <div class="publications">
+      
+    </div>
   
 
   
