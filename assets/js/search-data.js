@@ -41,37 +41,37 @@ ninja.data = [{
           title: 'Autonomous Blimp Robot',
           description: "From hardware to high-fidelity simulation — design, modeling, and control of an autonomous indoor blimp platform.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/1_project/";
+              window.location.href = "/projects/autonomous-blimp-robot/";
             },},{id: "projects-foc-inverter-prototype",
           title: 'FOC Inverter Prototype',
           description: "Field Oriented Control (FOC) motor controller development for solar racing applications",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/2_project/";
+              window.location.href = "/projects/foc-inverter-prototype/";
             },},{id: "projects-lidar-point-visualizer-amp-processor",
           title: 'LiDAR Point Visualizer &amp;amp; Processor',
           description: "Point cloud processing for object detection in autonomous racing.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/3_project/";
-            },},{id: "projects-proprioceptive-soft-robot-sensor-modelling",
-          title: 'Proprioceptive Soft Robot Sensor Modelling',
-          description: "Compensation of nonlinear sensor dynamics in soft robotic actuators.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/4_project/";
-            },},{id: "projects-vehicle-perception",
-          title: 'Vehicle Perception',
-          description: "a project with a background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/5_project/";
+              window.location.href = "/projects/lidar-point-visualizer/";
             },},{id: "projects-openai-gym-based-rl-policy-development",
           title: 'OpenAI GYM based RL policy development',
           description: "a project with no image",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/6_project/";
+              window.location.href = "/projects/openai-gym-rl-policy/";
+            },},{id: "projects-proprioceptive-soft-robot-sensor-modelling",
+          title: 'Proprioceptive Soft Robot Sensor Modelling',
+          description: "Compensation of nonlinear sensor dynamics in soft robotic actuators.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/soft-robot-sensor-modelling/";
             },},{id: "projects-traction-inverter-foc-v2",
           title: 'Traction Inverter (FOC v2)',
           description: "Second-generation SiC traction inverter for solar racing — improved power stage, control firmware, and system integration.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/7_project/";
+              window.location.href = "/projects/traction-inverter-foc-v2/";
+            },},{id: "projects-vehicle-perception",
+          title: 'Vehicle Perception',
+          description: "a project with a background image",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/vehicle-perception/";
             },},{
         id: 'social-email',
         title: 'email',
