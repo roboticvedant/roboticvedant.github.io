@@ -44,7 +44,7 @@ This is a four-person senior design effort, with each member leading a distinct 
 
 ## What's New vs. v1
 
-The first FOC prototype (see [FOC Inverter Prototype](/projects/2_project/)) validated the basic control concept on an FNA25060 IPM and an STM32 platform. v2 is a substantial rework rather than an incremental update:
+The first FOC prototype (see [FOC Inverter Prototype](/projects/foc-inverter-prototype/)) validated the basic control concept on an FNA25060 IPM and an STM32 platform. v2 is a substantial rework rather than an incremental update:
 
 - **SiC power stage** — Discrete SiC MOSFETs replace the IPM, enabling higher switching frequency, lower conduction losses, and a more compact thermal footprint.
 - **Custom low-voltage rails** — Purpose-built LV supplies replace the prototype-grade bench supplies, supporting the gate drives, controller, and sensing chain.
