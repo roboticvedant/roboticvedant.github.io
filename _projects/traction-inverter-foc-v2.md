@@ -37,6 +37,15 @@ The goal of v2 is to move from a benchtop prototype to a fully integrated tracti
 
 This is a four-person senior design effort, with each member leading a distinct subsystem of the inverter:
 
+<div class="row justify-content-sm-center">
+  <div class="col-sm-10 mt-3 mt-md-0">
+    {% include figure.liquid loading="eager" path="assets/img/LysanderInverter489/teamPic489FOC.jpg" title="ECE 489 traction inverter team" class="img-fluid rounded z-depth-1" %}
+  </div>
+</div>
+<div class="caption">
+  The ECE 489 traction inverter team — Vedant K. Naik, Owen Winegar, Abdallah Daha, and Dakota Farwell.
+</div>
+
 - **Vedant K. Naik** *(ECE — Senior)* — Led system-level control and firmware development, including PMSM modeling, control-law derivation, simulation, and the fault/state-machine logic. Also contributed to sensing-hardware development and the overall safety philosophy.
 - **Owen Winegar** *(ECE — Senior)* — Led the SiC power-stage development, including the FET-related power stage and associated gate-drive hardware. Drove hardware bring-up and contributed to the hardware architecture.
 - **Abdallah Daha** *(ECE — Senior)* — Led the low-voltage power rails and the final layout/integration of the inverter subcircuits. Drove hardware assembly and bring-up.
