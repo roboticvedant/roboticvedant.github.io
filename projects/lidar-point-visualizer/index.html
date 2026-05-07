@@ -344,7 +344,268 @@
 
 <h3 id="project-summary">Project Summary</h3>
 
-<p>To support the training of the <strong>PointPillars</strong> model for opponent car detection, accurate 3D ground truth was required. Since precise object labels were unavailable, a custom post-processing pipeline was developed to refine the rough bounding box estimates. This was achieved by <strong>synchronizing ego-vehicle LiDAR point clouds</strong> with <strong>opponent GNSS localization data</strong>, producing high-confidence, time-aligned labels.</p>
+<p>To support training of the <strong>PointPillars</strong> opponent-car detector for the Indy Autonomous Challenge (IAC), accurate 3D ground-truth bounding boxes were required. The opponent GNSS-based odometry available in the <a href="https://github.com/linklab-uva/RACECAR_DATA" rel="external nofollow noopener" target="_blank">RACECAR dataset</a> had non-trivial inaccuracies — particularly on the Z-axis, but also on X–Y and yaw — which left a large fraction of frames unusable for supervised training. This project built an <strong>offline ground-truth refinement pipeline</strong> that fuses ego-vehicle LiDAR with opponent GNSS to produce high-confidence, time-aligned labels.</p>
+
+<p>This work was carried out as my <strong>ECE 434 final project</strong> (Group 10) with <a href="https://github.com/btoaz" rel="external nofollow noopener" target="_blank">Ben Toaz</a> and Mk Bashar.</p>
+
+<blockquote>
+  <p>🔗 <strong>Code:</strong> <a href="https://github.com/roboticvedant/lidar_ransac_visualize" rel="external nofollow noopener" target="_blank">roboticvedant/lidar_ransac_visualize</a></p>
+</blockquote>
+
+<h2 id="problem">Problem</h2>
+
+<p>PointPillars and similar 3D detectors are only as good as their bounding-box labels. In the RACECAR dataset, opponent labels driven directly by GNSS frequently sit <strong>below the road plane</strong> or are misaligned in X–Y and yaw, often by enough that the bounding box doesn’t fully enclose the LiDAR points belonging to the opponent car. Without correction, those frames are effectively garbage-in, garbage-out for any model trained on them.</p>
+
+<div class="row justify-content-sm-center">
+  <div class="col-sm-10 mt-3 mt-md-0">
+    
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/lidar-ransac/Slide2-480.webp 480w,/~naikveda/assets/img/lidar-ransac/Slide2-800.webp 800w,/~naikveda/assets/img/lidar-ransac/Slide2-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+    
+    <img src="/~naikveda/assets/img/lidar-ransac/Slide2.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Problem statement — GNSS inaccuracies" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+  </div>
+</div>
+
+<h2 id="approach">Approach</h2>
+
+<p>The refinement runs as a four-stage pipeline:</p>
+
+<ol>
+  <li>
+<strong>GNSS data</strong> — Take the raw opponent odometry from RACECAR as the initial bounding-box guess.</li>
+  <li>
+<strong>RANSAC ground-plane refinement</strong> — Fit the local road plane and snap the bounding box vertically to it (“the car must be on the road”).</li>
+  <li>
+<strong>ICP refinement</strong> — Match the LiDAR points inside the (now Z-corrected) bounding box against a pre-built <strong>template point cloud of the opponent car</strong> to refine X–Y position.</li>
+  <li>
+<strong>RANSAC post-processing</strong> — Re-run plane segmentation on the now-cleaner data to lock in the ground plane without contamination from car points.</li>
+</ol>
+
+<div class="row justify-content-sm-center">
+  <div class="col-sm-12 mt-3 mt-md-0">
+    
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/lidar-ransac/Slide3-480.webp 480w,/~naikveda/assets/img/lidar-ransac/Slide3-800.webp 800w,/~naikveda/assets/img/lidar-ransac/Slide3-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+    
+    <img src="/~naikveda/assets/img/lidar-ransac/Slide3.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Refinement pipeline" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+  </div>
+</div>
+
+<h3 id="dataset">Dataset</h3>
+
+<p>We used the <strong>RACECAR — High-Speed Autonomous Racing</strong> dataset (Kulkarni et al., IROS 2023): time-aligned LiDAR point clouds, multi-camera imagery, and ego/opponent GNSS odometry from full-speed IAC sessions. All numbers below come from <strong>Scene 6</strong> of that dataset, which contains roughly 3 000 LiDAR frames with opponent labels.</p>
+
+<div class="row justify-content-sm-center">
+  <div class="col-sm-12 mt-3 mt-md-0">
+    
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/lidar-ransac/Slide4-480.webp 480w,/~naikveda/assets/img/lidar-ransac/Slide4-800.webp 800w,/~naikveda/assets/img/lidar-ransac/Slide4-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+    
+    <img src="/~naikveda/assets/img/lidar-ransac/Slide4.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="RACECAR dataset — multi-camera + LiDAR" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+  </div>
+</div>
+
+<h3 id="stage-1--naive-ransac-plane-refinement">Stage 1 — Naive RANSAC Plane Refinement</h3>
+
+<p>A predefined region of interest is constructed around the GNSS bounding box, sized using the known dimensions of the opponent IAC car so that it captures both the vehicle points and a strip of the surrounding road. <strong>3D RANSAC</strong> fits the dominant plane in that ROI, and the bounding box’s Z is then translated so the bottom of the box sits exactly on the fitted plane. Implementation is in raw Python on top of <strong>Open3D</strong>.</p>
+
+<p>This fixes the dominant Z-axis error cheaply, but leaves residual X–Y misalignment.</p>
+
+<div class="row justify-content-sm-center">
+  <div class="col-sm-10 mt-3 mt-md-0">
+    
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/lidar-ransac/Slide5-480.webp 480w,/~naikveda/assets/img/lidar-ransac/Slide5-800.webp 800w,/~naikveda/assets/img/lidar-ransac/Slide5-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+    
+    <img src="/~naikveda/assets/img/lidar-ransac/Slide5.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="RANSAC ground-plane refinement" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+  </div>
+</div>
+<div class="caption">
+  Red = original GNSS bounding box (sitting below the road). Blue = corrected bounding box snapped onto the RANSAC-fit road plane (green).
+</div>
+
+<h3 id="stage-2--icp-refinement-against-a-custom-car-template">Stage 2 — ICP Refinement Against a Custom Car Template</h3>
+
+<p>We know what the opponent car looks like — its geometry doesn’t change frame to frame — so the refined position can be improved by aligning the in-ROI LiDAR points to a <strong>template point cloud</strong> of the IAC chassis. The template was built by generating a 3D mesh of the car with <strong>Meshy.ai</strong> from IAC reference photos, then sampling it into a point cloud.</p>
+
+<div class="row justify-content-sm-center">
+  <div class="col-sm-8 mt-3 mt-md-0">
+    
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/lidar-ransac/Slide6-480.webp 480w,/~naikveda/assets/img/lidar-ransac/Slide6-800.webp 800w,/~naikveda/assets/img/lidar-ransac/Slide6-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+    
+    <img src="/~naikveda/assets/img/lidar-ransac/Slide6.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Custom opponent-car template point cloud" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+  </div>
+</div>
+
+<p>ICP is initialized with the RANSAC-refined pose as its starting guess, which keeps it well inside the convergence basin. We restricted ICP to <strong>translation-only</strong> updates: the LiDAR returns from a high-speed opponent are sparse and asymmetrically occluded, so full 6-DOF ICP can latch onto bad yaw rotations even when translation is correct. Yaw is left to be cleaned up later by the downstream <strong>temporal tracker</strong>, which has access to multi-frame context that single-shot ICP doesn’t.</p>
+
+<div class="row justify-content-sm-center">
+  <div class="col-sm-10 mt-3 mt-md-0">
+    
+
+
+
+<figure>
+  <picture>
+    <!-- Auto scaling with imagemagick -->
+    <!--
+      See https://www.debugbear.com/blog/responsive-images#w-descriptors-and-the-sizes-attribute and
+      https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
+    -->
+    
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/lidar-ransac/Slide7-480.webp 480w,/~naikveda/assets/img/lidar-ransac/Slide7-800.webp 800w,/~naikveda/assets/img/lidar-ransac/Slide7-1400.webp 1400w," type="image/webp" sizes="95vw"></source>
+    
+    <img src="/~naikveda/assets/img/lidar-ransac/Slide7.jpg" class="img-fluid rounded z-depth-1" width="100%" height="auto" title="Translation-only ICP result" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+  </picture>
+
+  
+</figure>
+
+  </div>
+</div>
+
+<h3 id="stage-3--ransac-post-processing">Stage 3 — RANSAC Post-Processing</h3>
+
+<p>After ICP, the boundary between car points and road points is much cleaner, so re-running ground-plane RANSAC on the post-ICP data produces a noticeably more reliable plane fit. In some original frames RANSAC was being polluted by car-body points and tilting the inferred ground plane; the post-ICP pass largely removes that failure mode.</p>
+
+<h2 id="ros-2-integration">ROS 2 Integration</h2>
+
+<p>The pipeline was wrapped as a ROS 2 node — <code class="language-plaintext highlighter-rouge">live_visualizer_node</code> — to make it usable inside the existing PoliMOVE-MSU stack rather than only as an offline batch tool. The node subscribes to ego LiDAR + ego/opponent odometry, runs the RANSAC + ICP chain, and republishes corrected opponent odometry alongside Open3D-based visualization for live debugging.</p>
+
+<h2 id="results--scene-6">Results — Scene 6</h2>
+
+<p>The honest benchmarking story for ground-truth refinement is hard, because there is no separate “true” ground truth to score against. We did a frame-by-frame <strong>visual inspection</strong> pass on Scene 6 (~3 000 LiDAR frames) at each stage and counted frames usable as training labels:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Stage</th>
+      <th>Usable frames</th>
+      <th>Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Raw GNSS labels</td>
+      <td><strong>412</strong></td>
+      <td>Severe Z-axis error and X–Y/yaw drift in most frames</td>
+    </tr>
+    <tr>
+      <td>+ Naive RANSAC (Z-fix)</td>
+      <td><strong>2 089</strong></td>
+      <td>Z snapping alone recovers ~5× more frames</td>
+    </tr>
+    <tr>
+      <td>+ ICP refinement</td>
+      <td><strong>~2 832</strong></td>
+      <td>Translation-only ICP failed to improve the bounding box on only <strong>28 / 500</strong> sampled frames (5.6%)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>So the pipeline takes Scene 6 from ~14% usable to ~95% usable — a meaningful change in the size of the trainable subset.</p>
+
+<h2 id="broader-application">Broader Application</h2>
+
+<p>The same construction is reusable as a <strong>sensor-fusion refinement</strong> layer for any system whose object detector outputs probabilistic / uncertain pose estimates: feed the detector output in as the initial guess and let the LiDAR-anchored RANSAC + ICP stage tighten it up. It is not a real-time component as written — Open3D + naive Python is offline-grade — but the algorithmic structure is the same as what you’d want online.</p>
+
+<h2 id="future-work">Future Work</h2>
+
+<ul>
+  <li>
+<strong>Learning-based registration</strong> — Vanilla ICP is brittle to occlusions and geometry changes. Approaches like <strong>PointNetLK</strong> (Aoki et al., CVPR 2019) use a PointNet-style global descriptor inside a Lucas–Kanade-style update, which handles occlusions and partial matches better than nearest-neighbor ICP.</li>
+  <li>
+<strong>Camera + radar fusion</strong> — Adding camera-based detection + radar Doppler to the refinement loop would help disambiguate yaw and resolve cases where LiDAR alone is degenerate (e.g., long-axis-aligned views of the opponent).</li>
+  <li>
+<strong>Real-time deployment</strong> — The current pipeline is offline-grade. Pushing it into the live perception stack would require a C++ port and tighter integration with the existing IAC software stack.</li>
+  <li>
+<strong>Generalizable ground truth</strong> — The biggest remaining problem is that “ground truth” itself is still constructed by visual inspection. Even a refined dataset is only as solid as the inspector calling it usable.</li>
+</ul>
+
+<h2 id="references">References</h2>
+
+<ol>
+  <li>Kulkarni et al., <em>RACECAR — The Dataset for High-Speed Autonomous Racing</em>, IROS 2023.</li>
+  <li>Lang et al., <em>PointPillars: Fast Encoders for Object Detection from Point Clouds</em>, CVPR 2019.</li>
+  <li>Aoki et al., <em>PointNetLK: Robust &amp; Efficient Point Cloud Registration Using PointNet</em>, CVPR 2019.</li>
+  <li>Jin et al., <em>Robust LiDAR-Based Vehicle Detection for On-Road Autonomous Driving</em>, Remote Sensing 15(12), 2023.</li>
+</ol>
 
   </article>
 
@@ -398,7 +659,7 @@
 
       
       
-        Last updated: April 26, 2026.
+        Last updated: May 07, 2026.
       
     </div>
   </footer>
