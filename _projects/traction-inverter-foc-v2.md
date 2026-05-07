@@ -17,6 +17,8 @@ giscus_comments: true
 # Traction Inverter — FOC Inverter v2
 
 **Collaborators:** Owen Winegar, Abdallah Daha, Dakota Farwell
+**Advisor:** Dr. Omid Beik
+**Course:** ECE 489 — Senior Design Capstone, Spring 2026
 
 ## Project Overview
 
@@ -155,7 +157,7 @@ A locked-rotor 60 Hz AC test gave the inductance and impedance behavior of the w
 
 ### Back-EMF & Flux Linkage
 
-Spinning the motor as a generator gave the back-EMF constant and rotor flux linkage — the last parameter needed to close out the dq model.
+Spinning the motor as a generator gave the back-EMF constant and rotor flux linkage — the last parameter needed to close out the dq model. A factor of ½ is applied because the windings were configured in series during characterization, so the reported flux linkage corresponds to the parallel-winding configuration used on the vehicle.
 
 <div class="row">
   <div class="col-sm mt-3 mt-md-0">
@@ -168,6 +170,17 @@ Spinning the motor as a generator gave the back-EMF constant and rotor flux link
 <div class="caption">
   Left: measured back-EMF voltage vs. electrical frequency. Right: derived rotor flux linkage.
 </div>
+
+### Extracted Parameters
+
+| Parameter | Symbol | Value |
+|---|---|---|
+| Stator resistance (per phase) | $$R_s$$ | 193.47 mΩ |
+| Phase inductance | $$L_s$$ | 0.44 mH |
+| Rotor flux linkage | $$\psi$$ | 98.05 mWb (± 3.25 mWb) |
+| Pole pairs | $$p$$ | 16 |
+
+These feed directly into the dq model used for control derivation, current-loop bandwidth design, and the torque–speed envelope simulation below.
 
 ## Simulation
 
@@ -186,22 +199,82 @@ With the characterized parameters in hand, the full PMSM + inverter + controller
 
 On the hardware side, v2 moves to a SiC-based three-phase bridge with dedicated gate-drive circuitry, a custom LV power tree, and a layout that prioritizes commutation-loop inductance, thermal pathing, and serviceability. Bring-up is staged: LV rails first, then gate drives, then power stage under reduced DC-link voltage, then full-power operation.
 
+### MOSFET Selection
+
+We chose a 400 V Infineon SiC MOSFET. The pack maxes out around 113 V today, so 400 V leaves substantial headroom and keeps the door open to a higher-voltage bus on a future car (lower current → less I²R loss in the harness, inverter, and motor). Because the inverter switches at 20–30 kHz, conduction loss dominates over switching loss, so within Infineon's 400 V lineup we picked the lowest-$$R_{DS(on)}$$ part rather than the fastest one.
+
+### Isolated High-Voltage Sensing
+
+The sensing chain is built around automotive-qualified isolated front-ends so the LV controller domain stays galvanically separated from the traction bus.
+
+- **Phase currents** — TI TMCS1133B1A-Q1 Hall-effect sensors, 25 mV/A, ±62 A range. Used for FOC current feedback and overcurrent protection.
+- **DC-link current** — TMCS1133B7A-Q1, 20 mV/A, ±77.5 A range. Used for input-current monitoring, power estimation, and the hardware fail-safe path described below.
+- **DC-link voltage** — Resistor divider into a TI AMC3311-Q1 reinforced isolated amplifier with integrated isolated DC/DC. Divider ratio $$k_{div} = 0.013485$$ using 0.1% / 25 ppm/°C thin-film resistors, giving a 0–148.3 V measurement range against the 65–150 V battery operating window.
+
+Hall-effect sensing was preferred over shunts because of the isolation and the negligible insertion loss in the high-current path.
+
+### Low-Voltage Power Rails
+
+The LV input accepts a nominal 24 V from the car's auxiliary bus, with operation specified across 10–28 V to absorb sag, transients, and a possible future 12 V LV architecture. The front end provides reverse-polarity blocking, TVS clamping, and a CM choke + ferrite bead for differential HF attenuation.
+
+- **Active protection** — TI LM74202-Q1 eFuse with UVLO ≈ 10.1 V, OVP ≈ 28.4 V, 1.2 A overload limit, and ~5 ms inrush ramp. Its fault output is wired to the MCU as an active-low flag so the firmware can disable switching deterministically before the eFuse latches off.
+- **Cascaded buck + LDO** — A 2.2 MHz automotive synchronous buck generates a 3.8 V intermediate rail, which feeds two TPS7A9401-Q1 ultra-low-noise LDOs in current-share parallel for the 3.3 V controller rail.
+- **Isolated gate-drive bias** — Six UCC14240-Q1 isolated DC/DC modules generate the six 18 V high-side / low-side gate-drive supplies referenced to each switching node.
+
+This split keeps the controller's low-noise rail isolated from the gate-drive bias network.
+
+### PCB Layout
+
+The board is split into a digital/control side and an inverter power side to keep the noisy switching domain away from sensitive analog/digital signals. The three half-bridges are laid out as **vertical, mirror-symmetric phases** so each commutation loop sees the same parasitics, and gate drivers are placed immediately adjacent to their MOSFETs to minimize gate-loop inductance. **Via-in-pad** under each MOSFET pulls heat through the PCB into the aluminum heatsink, which is also the housing baseplate.
+
 ## Thermal & Mechanical Integration
 
-The controller and housing are designed together. Thermal simulation drives heatsink selection, FET placement, and airflow assumptions, so that the electrical and mechanical designs converge rather than fight each other late in the build.
+Thermal simulation drives heatsink selection, FET placement, and airflow assumptions so the electrical and mechanical designs converge rather than fight each other late in the build.
+
+### Thermal Stack
+
+| Path | $$R_\theta$$ (°C/W) |
+|---|---|
+| Junction → case (datasheet) | 0.35 |
+| Case → PCB (solder pad) | 0.06 |
+| PCB thermal vias (conservative) | 2.00 |
+| PCB → aluminum heatsink (TIM) | 2.00 |
+| Heatsink → ambient (10 mm Al) | 0.60 |
+| **Total** | **5.01** |
+
+At a deliberately pessimistic 80 A continuous draw shared across three phases, per-FET dissipation is ≈ 10.24 W (using the datasheet 14.4 mΩ $$R_{DS(on)}$$), giving a worst-case junction rise of ~51.3 °C — well under the 175 °C absolute max. Passive cooling was therefore deemed sufficient; the heatsink was milled from 6061 aluminum, with NTC thermistors monitoring temperature in firmware.
+
+### Housing & Manufacturing
+
+The housing was designed in Onshape with PCB and TE Connectivity connector models imported in. Sides and lid were CNC-routed from 6061; the HAAS 3-axis mill engraved the phase and DC labels. Custom HV connectors were built from CNC-cut copper bars with 3D-printed PLA shrouds because off-the-shelf HV connectors were outside the budget.
 
 ## Safety Philosophy
 
 Because this inverter is intended to drive a vehicle, the safety story is treated as a first-class deliverable rather than an afterthought:
 
-- Hardware interlocks for DC-link discharge and gate-drive enable.
-- Firmware fault state machine with explicit, testable transitions for each fault class.
-- Sensing redundancy on critical channels.
-- A clearly defined safe state that the system falls back to on any unhandled condition.
+- **Firmware fault state machine** with explicit, testable transitions for each fault class. Active switching is gated on verified rails, sensor health, gate-driver status, and a vehicle-level enable.
+- **Hardware interlocks** for gate-drive enable.
+- **Sensing redundancy** on critical channels.
+- **Defined safe state** the system falls back to on any unhandled condition.
 
-## Bring-up & First Spin
+### Hardware Fail-Safe — Three-Phase Low-Side Short
 
-After staged power-stage bring-up, the inverter was paired with the Mitsuba motor on the bench for its first closed-loop spin. The same setup was also brought to the Spring 2026 ECE Design Day demonstration.
+A secondary, hardware-mediated protection path is wired off the DC-link current sensor's overcurrent output (threshold set at 75 A). On a severe DC overcurrent — particularly an uncontrolled regen event or loss of normal PWM authority — this signal can force a **three-phase low-side short**, clamping the motor terminals through the low-side devices. The back-EMF-driven current is then contained in the motor + inverter loop instead of being driven into the DC-link capacitors and battery interface. This is a last-resort path, coordinated with the gate-driver safety logic and firmware fault handling.
+
+## Diagnostics & Logging
+
+The controller exposes two CAN interfaces, deliberately separated:
+
+- **FDCAN1 — vehicle bus.** Classic CAN 2.0 at 250 kbps, shared with the rest of the car. Carries vehicle commands, inverter status, and fault frames.
+- **FDCAN2 — private diagnostic bus.** CAN FD at 1 Mbps arbitration / 5 Mbps data, used for high-bandwidth streaming of control variables, sensor data, and gate-driver status during bring-up and calibration without loading the vehicle bus.
+
+An on-board EEPROM stores the active fault state, status flags, and a rolling window of pre-fault data on shutdown, so the next power-up can report previous fault context to the diagnostic interface — useful for tracing intermittent issues across testing sessions.
+
+## Bring-up & Status
+
+Bring-up was staged: LV rails → gate drives → power stage at reduced DC-link voltage → full-power operation. The inverter was then paired with the Mitsuba motor on the bench and successfully spun under **six-step commutation using Hall-effect rotor position feedback**. This validated the full system path — power stage, gate-drive interface, isolated sensing, rotor feedback, and the embedded control framework — at a system level. The same setup was demonstrated at the Spring 2026 ECE Design Day.
+
+Full closed-loop FOC implementation and validation remain future work due to project time and shipping constraints. The dq model, decoupling/feedback-linearization terms, PI gain selection, SVPWM strategy, sensing architecture, fault state-machine skeleton, and power-stage hardware were all developed to provide the foundation for that next step.
 
 <div class="row justify-content-sm-center">
   <div class="col-sm-10 mt-3 mt-md-0">
@@ -225,10 +298,11 @@ After staged power-stage bring-up, the inverter was paired with the Mitsuba moto
 
 Current focus areas:
 
-- Completing power-stage bring-up at reduced DC-link voltage.
-- Validating the fault state machine against injected faults on the bench.
+- Migrating from six-step commutation to full FOC using the characterized PMSM model and the analytically derived PI gains ($$K_p \approx 1.05\,\Omega$$, $$K_i \approx 1760\,\Omega/s$$ at 318 Hz current-loop bandwidth).
+- Validating the fault state machine against injected faults on the bench, including the 75 A hardware short fail-safe path.
 - Tuning the current and speed loops against the characterized PMSM.
 - Closing the loop on thermal performance under representative load profiles.
+- Adding firmware-controlled active DC-link discharge, HV-derived auxiliary LV supply, and pre-charge sequencing — identified for v2 but deferred from this revision.
 
 ## Acknowledgments
 
