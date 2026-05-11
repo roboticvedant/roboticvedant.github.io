@@ -31,6 +31,10 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{titlesec}
 
+% Shared profile data (name, contact, education) — single source of truth
+% for resume + academic CV. See cv-source/shared/profile.tex.
+\input{shared/profile}
+
 % -- Section headers ---------------------------------------------------------
 \titleformat{\section}[block]{\normalfont\normalsize\bfseries\scshape}
   {}{0pt}{}[\vspace{1pt}\hrule height 0.4pt\vspace{2pt}]
@@ -86,10 +90,10 @@
 
 % -- HEADER ------------------------------------------------------------------
 \begin{center}
-  {\fontsize{16}{19}\selectfont\itshape Vedant K. Naik}\\[3pt]
-  East Lansing~|~\href{mailto:naikveda@msu.edu}{naikveda@msu.edu}~|~(562) 350-5719~|~%
-  \href{https://linkedin.com/in/vedantknaik/}{linkedin.com/in/vedantknaik/}~|~%
-  \href{https://github.com/roboticvedant}{github.com/roboticvedant}
+  {\fontsize{16}{19}\selectfont\itshape \myName}\\[3pt]
+  \myCity~|~\href{mailto:\myEmail}{\myEmail}~|~\myPhone~|~%
+  \href{https://\myLinkedIn}{\myLinkedIn}~|~%
+  \href{https://\myGithub}{\myGithub}
 \end{center}
 \vspace{2pt}
 \noindent Electrical Engineering student specializing in robotics, embedded systems, and control, with hands-on experience in firmware and system prototyping, seeking opportunities to drive innovation and devise intelligent systems.
@@ -97,8 +101,8 @@
 % -- EDUCATION ---------------------------------------------------------------
 \section*{Education}
 
-\edu{Michigan State University, College of Engineering}{East Lansing, MI}
-    {Bachelor of Science, Electrical Engineering, GPA: 4.0}{August 2022 -- May 2026}
+\edu{\eduSchoolFull}{\myLocation}
+    {\eduDegreeFull, GPA: \eduGpa}{\eduDatesFull}
 
 \activities{IEEE South East Michigan-Chapter, Tau-Beta-Pi, MSU Solar Racing, PoliMOVE-MSU Autonomous Racing Team}
 

@@ -1,0 +1,86 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[
+    style=ieee,
+    sorting=ydnt,
+    defernumbers=true
+]{biblatex}
+% publications.bib is copied in from _bibliography/papers.bib at build time
+% (see the "Sync publications bib for CV" step in .github/workflows/deploy.yml).
+\addbibresource{publications.bib}
+
+% Shared profile data (name, contact, education) — single source of truth
+% for resume + academic CV. See cv-source/shared/profile.tex.
+\input{../shared/profile}
+
+\definecolor{sectioncolor}{RGB}{92, 184, 92}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=black,
+    urlcolor=black,
+    citecolor=black
+}
+
+\pagestyle{empty}
+
+\titleformat{\section}
+{\large\bfseries}
+{}
+{0em}
+{\colorbox{sectioncolor}{\makebox[2.5cm][l]{\textcolor{white}{\rule{0pt}{0.5pt}}}}\hspace{0.5em}}
+[\vspace{-0.5em}]
+
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{minipage}[t]{0.55\textwidth}
+    {\Huge\textbf{\href{https://\myWebsite/}{\myName}}}\\[8pt]
+    \textit{Undergraduate Student}\\
+    \textit{Electrical and Computer Engineering Department}\\
+    \textit{\eduSchool}
+\end{minipage}%
+\begin{minipage}[t]{0.45\textwidth}
+    \raggedleft
+    \myLocation\\
+     +1~\myPhone\\
+     \href{mailto:\myEmail}{\myEmail}\\
+     \href{https://\myWebsite/}{\myWebsite}
+\end{minipage}
+
+\vspace{20pt}
+
+\section{Education}
+
+\textbf{\eduDegreeShort}, \eduSchool, \myCity \hfill \textbf{\eduDatesShort}\\
+\null \hfill \textbf{GPA: \eduGpa/4.0} \\
+\textit{Activities:} \href{https://honorscollege.msu.edu/}{Honors College}, \href{https://www.tbp.org}{Tau Beta Pi}, \href{https://msusolarracing.com/}{MSU Solar Racing Team}, \href{https://www.indyautonomouschallenge.com/politecnico-di-milano}{PoliMOVE-MSU Autonomous Racing Team}
+
+\input{experience}
+
+\section{Inventions}
+\begin{refsection}
+\nocite{*}
+\printbibliography[heading=none,keyword=invention]
+\end{refsection}
+
+\section{Publications}
+\begin{refsection}
+\nocite{*}
+\printbibliography[heading=none,notkeyword=invention]
+\end{refsection}
+
+\input{academics}
+
+\input{honorsandawards}
+
+\end{document}

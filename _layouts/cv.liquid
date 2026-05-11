@@ -6,15 +6,30 @@ layout: default
     <header class="post-header">
       <h1 class="post-title">
         {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url}}"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-            ><i class="fa-solid fa-file-pdf"></i
-          ></a>
-        {% endif %}
+        <span class="float-right" style="font-size: 0.55em; font-weight: 400;">
+          {% if page.resume_pdf %}
+            <a
+              href="{{ page.resume_pdf | prepend: 'assets/pdf/' | relative_url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-sm btn-outline-secondary"
+              style="margin-left: 0.35rem;"
+            >
+              <i class="fa-solid fa-file-pdf"></i> Resume
+            </a>
+          {% endif %}
+          {% if page.cv_pdf %}
+            <a
+              href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-sm btn-outline-secondary"
+              style="margin-left: 0.35rem;"
+            >
+              <i class="fa-solid fa-file-pdf"></i> Academic CV
+            </a>
+          {% endif %}
+        </span>
       </h1>
       {% if page.description %}
         <p class="post-description">{{ page.description }}</p>
@@ -52,20 +67,38 @@ layout: default
     <header class="post-header">
       <h1 class="post-title">
         {{ page.title }}
-        {% if page.cv_pdf %}
-          <a
-            {% if page.cv_pdf contains '://' %}
-              href="{{ page.cv_pdf }}"
-            {% else %}
-              href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}"
-            {% endif %}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="float-right"
-          >
-            <i class="fa-solid fa-file-pdf"></i>
-          </a>
-        {% endif %}
+        <span class="float-right" style="font-size: 0.55em; font-weight: 400;">
+          {% if page.resume_pdf %}
+            <a
+              {% if page.resume_pdf contains '://' %}
+                href="{{ page.resume_pdf }}"
+              {% else %}
+                href="{{ page.resume_pdf | prepend: 'assets/pdf/' | relative_url }}"
+              {% endif %}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-sm btn-outline-secondary"
+              style="margin-left: 0.35rem;"
+            >
+              <i class="fa-solid fa-file-pdf"></i> Resume
+            </a>
+          {% endif %}
+          {% if page.cv_pdf %}
+            <a
+              {% if page.cv_pdf contains '://' %}
+                href="{{ page.cv_pdf }}"
+              {% else %}
+                href="{{ page.cv_pdf | prepend: 'assets/pdf/' | relative_url }}"
+              {% endif %}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-sm btn-outline-secondary"
+              style="margin-left: 0.35rem;"
+            >
+              <i class="fa-solid fa-file-pdf"></i> Academic CV
+            </a>
+          {% endif %}
+        </span>
       </h1>
       {% if page.description %}
         <p class="post-description">{{ page.description }}</p>

@@ -71,7 +71,10 @@ jobs:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
 
-      - name: Compile CV (LaTeX → PDF) 📄
+      - name: Sync publications bib for academic CV 🔗
+        run: cp _bibliography/papers.bib cv-source/academic-cv/publications.bib
+
+      - name: Compile resume (LaTeX → PDF) 📄
         uses: xu-cheng/latex-action@v3
         with:
           root_file: resume.tex
@@ -79,10 +82,19 @@ jobs:
           latexmk_use_xelatex: false
           args: -pdf -interaction=nonstopmode -halt-on-error
 
-      - name: Stage CV PDF into assets 📦
+      - name: Compile academic CV (LaTeX → PDF) 📄
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: main.tex
+          working_directory: cv-source/academic-cv
+          latexmk_use_xelatex: false
+          args: -pdf -interaction=nonstopmode -halt-on-error
+
+      - name: Stage CV PDFs into assets 📦
         run: |
           mkdir -p assets/pdf
           cp cv-source/resume.pdf assets/pdf/Vedant_Naik_Resume.pdf
+          cp cv-source/academic-cv/main.pdf assets/pdf/Vedant_Naik_CV.pdf
 
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
