@@ -5,7 +5,7 @@ permalink: /projects/
 description:
 nav: true
 nav_order: 3
-display_categories: [Solar Car, Personal, Smart Microsystems Lab, PoliMOVE-MSU]
+display_categories: [Solar Car, Smart Microsystems Lab, PoliMOVE-MSU]
 horizontal: false
 ---
 
