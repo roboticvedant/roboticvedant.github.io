@@ -56,10 +56,10 @@ layout: default
       {% include latest_posts.liquid %}
     {% endif %}
 
-    <!-- Selected papers -->
+    <!-- Publications -->
     {% if page.selected_papers %}
       <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">publications</a>
       </h2>
       {% include selected_papers.liquid %}
     {% endif %}
@@ -76,5 +76,7 @@ layout: default
     {% if site.newsletter.enabled and site.footer_fixed %}
       {% include scripts/newsletter.liquid center=true %}
     {% endif %}
+
+    {% include clustrmaps.liquid %}
   </article>
 </div>

@@ -1,0 +1,9 @@
+{% if site.clustrmaps_id and site.clustrmaps_id != "" %}
+  <div class="clustrmaps-widget" style="text-align: center; margin: 2rem auto 0; max-width: 320px; opacity: 0.85;">
+    <script
+      type="text/javascript"
+      id="clustrmaps"
+      src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d={{ site.clustrmaps_id }}&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff"
+    ></script>
+  </div>
+{% endif %}
