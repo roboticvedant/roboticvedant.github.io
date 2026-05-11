@@ -23,13 +23,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/~naikveda/projects/";
           },
-        },{id: "nav-repositories",
-          title: "repositories",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/~naikveda/repositories/";
-          },
         },{id: "nav-cv",
           title: "cv",
           description: "Vedant K. Naik is a robotics developer, passionate about Autonomous Vehicle and Sustainibility.",
@@ -52,11 +45,6 @@ ninja.data = [{
           description: "Point cloud processing for object detection in autonomous racing.",
           section: "Projects",handler: () => {
               window.location.href = "/~naikveda/projects/lidar-point-visualizer/";
-            },},{id: "projects-openai-gym-based-rl-policy-development",
-          title: 'OpenAI GYM based RL policy development',
-          description: "a project with no image",
-          section: "Projects",handler: () => {
-              window.location.href = "/~naikveda/projects/openai-gym-rl-policy/";
             },},{id: "projects-proprioceptive-soft-robot-sensor-modelling",
           title: 'Proprioceptive Soft Robot Sensor Modelling',
           description: "Compensation of nonlinear sensor dynamics in soft robotic actuators.",
@@ -67,11 +55,6 @@ ninja.data = [{
           description: "Second-generation SiC traction inverter for solar racing — improved power stage, control firmware, and system integration.",
           section: "Projects",handler: () => {
               window.location.href = "/~naikveda/projects/traction-inverter-foc-v2/";
-            },},{id: "projects-vehicle-perception",
-          title: 'Vehicle Perception',
-          description: "a project with a background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/~naikveda/projects/vehicle-perception/";
             },},{
         id: 'social-email',
         title: 'email',
