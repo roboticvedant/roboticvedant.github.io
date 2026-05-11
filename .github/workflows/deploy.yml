@@ -7,11 +7,13 @@ on:
       - main
     paths:
       - "assets/**"
+      - "cv-source/**"
       - "**.bib"
       - "**.html"
       - "**.js"
       - "**.liquid"
       - "**/*.md"
+      - "**.tex"
       - "**.yml"
       - "Gemfile"
       - "Gemfile.lock"
@@ -34,11 +36,13 @@ on:
       - main
     paths:
       - "assets/**"
+      - "cv-source/**"
       - "**.bib"
       - "**.html"
       - "**.js"
       - "**.liquid"
       - "**/*.md"
+      - "**.tex"
       - "**.yml"
       - "Gemfile"
       - "Gemfile.lock"
@@ -66,6 +70,19 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+
+      - name: Compile CV (LaTeX → PDF) 📄
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: resume.tex
+          working_directory: cv-source
+          latexmk_use_xelatex: false
+          args: -pdf -interaction=nonstopmode -halt-on-error
+
+      - name: Stage CV PDF into assets 📦
+        run: |
+          mkdir -p assets/pdf
+          cp cv-source/resume.pdf assets/pdf/Vedant_Naik_Resume.pdf
 
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1

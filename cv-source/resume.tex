@@ -1,0 +1,151 @@
+%% ============================================================
+%%  Vedant K. Naik -- Resume
+%%  Overleaf / pdfLaTeX compatible (no engine change needed)
+%%
+%%  HOW TO ADD / EDIT CONTENT:
+%%  -----------------------------------------------------------
+%%  1. EXPERIENCE  ->  use \job{}{}{}{} then \begin{bullets}
+%%  2. EDUCATION   ->  use \edu{}{}{}{} then optional \activities{}
+%%  3. SKILLS      ->  use \skill{Category}{item1, item2, ...}
+%%  4. HEADER      ->  edit the \name / \contact lines
+%%  All formatting is automatic -- just fill in the fields.
+%% ============================================================
+
+\documentclass[11pt]{article}
+
+% -- Font (Helvetica -- pdfLaTeX native, visually close to Calibri) ------------
+\usepackage[scaled=1.0]{helvet}
+\usepackage[T1]{fontenc}
+\renewcommand{\familydefault}{\sfdefault}
+
+% -- Page geometry ------------------------------------------------------------
+\usepackage[letterpaper, top=0.48in, bottom=0.48in,
+            left=0.50in, right=0.50in]{geometry}
+
+% -- Core packages -----------------------------------------------------------
+\usepackage{microtype}
+\usepackage{parskip}   \setlength{\parskip}{0pt} \setlength{\parindent}{0pt}
+\usepackage{setspace}  \setstretch{1.06}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{titlesec}
+
+% -- Section headers ---------------------------------------------------------
+\titleformat{\section}[block]{\normalfont\normalsize\bfseries\scshape}
+  {}{0pt}{}[\vspace{1pt}\hrule height 0.4pt\vspace{2pt}]
+\titlespacing*{\section}{0pt}{5pt}{1pt}
+
+% -- Bullet list -------------------------------------------------------------
+\newlist{bullets}{itemize}{1}
+\setlist[bullets]{
+  label=\textbullet, leftmargin=0.48in, itemindent=0pt,
+  labelsep=0.10in, topsep=1pt, itemsep=0pt, parsep=0pt, partopsep=0pt,
+}
+
+% ============================================================================
+%  MACROS  (fill these in -- all formatting is handled automatically)
+% ============================================================================
+
+% \job{Company}{Location}{Role}{Date Range}
+\newcommand{\job}[4]{%
+  \vspace{4pt}%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \small #2 \\[-2pt]
+    \textit{#3} & \small #4 \\
+  \end{tabularx}%
+  \vspace{-1pt}%
+}
+
+% \edu{Institution}{Location}{Degree + GPA}{Date Range}
+\newcommand{\edu}[4]{%
+  \noindent
+  \begin{tabularx}{\linewidth}{@{}X r@{}}
+    \textbf{#1} & \small #2 \\[-2pt]
+    \textit{#3} & \small #4 \\
+  \end{tabularx}%
+}
+
+% \activities{list of activities}
+\newcommand{\activities}[1]{%
+  \vspace{2pt}%
+  \noindent\textit{\underline{Activities and Societies:}} #1\par%
+}
+
+% \skill{Category Label}{Comma-separated items}
+\newcommand{\skill}[2]{%
+  \noindent\textit{\underline{#1:}} #2\par\vspace{2pt}%
+}
+
+% ============================================================================
+%  DOCUMENT
+% ============================================================================
+\begin{document}
+\pagestyle{empty}
+
+% -- HEADER ------------------------------------------------------------------
+\begin{center}
+  {\fontsize{16}{19}\selectfont\itshape Vedant K. Naik}\\[3pt]
+  East Lansing~|~\href{mailto:naikveda@msu.edu}{naikveda@msu.edu}~|~(562) 350-5719~|~%
+  \href{https://linkedin.com/in/vedantknaik/}{linkedin.com/in/vedantknaik/}~|~%
+  \href{https://github.com/roboticvedant}{github.com/roboticvedant}
+\end{center}
+\vspace{2pt}
+\noindent Electrical Engineering student specializing in robotics, embedded systems, and control, with hands-on experience in firmware and system prototyping, seeking opportunities to drive innovation and devise intelligent systems.
+
+% -- EDUCATION ---------------------------------------------------------------
+\section*{Education}
+
+\edu{Michigan State University, College of Engineering}{East Lansing, MI}
+    {Bachelor of Science, Electrical Engineering, GPA: 4.0}{August 2022 -- May 2026}
+
+\activities{IEEE South East Michigan-Chapter, Tau-Beta-Pi, MSU Solar Racing, PoliMOVE-MSU Autonomous Racing Team}
+
+% -- EXPERIENCE --------------------------------------------------------------
+\section*{Experience}
+
+%------------------------------------------------------------
+\job{Tesla Motors}{Palo Alto, CA}
+    {Integration Engineering Intern}{August 2025 -- December 2025}
+\begin{bullets}
+  \item Led cross-functional debugging with Motor Controls, Hardware, and Firmware teams to resolve drive-inverter firmware issues and improve system safety and service routine reliability.
+  \item Expanded PIL infrastructure with 2+ motor models and a model-generation pipeline to extend drive-inverter firmware test suites to additional motor variants, improving control evaluation and regression readiness.
+  \item Supported Drive Inverter firmware configurations for a new Drive Unit program, enabling downstream teams to begin validation on schedule and reducing integration delays.
+\end{bullets}
+
+%------------------------------------------------------------
+\job{Lucid Motors}{Newark, CA}
+    {Intern, ADAS Sensor Hardware Engineer}{May 2025 -- August 2025}
+\begin{bullets}
+  \item Engineered a camera data collection system for the Lucid Gravity, enabling easy debugging and data collection for all cameras, and providing an I\textsuperscript{2}C interface for rapid prototyping and testing.
+  \item Resolved 5+ production camera issues by analyzing sensor-level signals and raw data, collaborating with ISP vendors, sensor manufacturers, integrators, and internal teams.
+  \item Devised the testing setup for a depth estimation sensing system for the next generation of Lucid vehicles, utilizing a cost-effective approach to repurpose existing camera packaging locations.
+\end{bullets}
+
+%------------------------------------------------------------
+\job{Smart Microsystems Lab, Michigan State University}{East Lansing, MI}
+    {Undergraduate Research Assistant}{August 2023 -- Present}
+\begin{bullets}
+  \item Modeled a nonlinear strain sensor with significant temporal dynamics using a Time-Delay Neural Network (TDNN), achieving an R\textsuperscript{2} $>$ 0.98. Work resulted in a journal publication (DOI: 10.1088/1361-665X/adb2c7).
+  \item Engineered an autonomous robotic blimp with 4-thruster configuration, IMU, WiFi, and LoRa connectivity; developed microcontroller PCB and firmware with micro-ROS architecture to streamline algorithm development between low-level and high-level control systems.
+\end{bullets}
+
+%------------------------------------------------------------
+\job{Intrepid Control Systems}{Troy, MI}
+    {Embedded Systems Intern}{May 2024 -- August 2024}
+\begin{bullets}
+  \item Enhanced firmware of Zynq-based products by integrating IMU, DoIP, and GPS support using Xilinx SDK, resolving 7+ firmware driver issues to enrich product functionality.
+  \item Added gPTP support for 10Base-T1S PHY and TC10 support for 100/1000Base-T1 Automotive Ethernet products, optimizing GPS signal reporting and enhancing system performance through the company's resource API.
+\end{bullets}
+
+% -- SKILLS ------------------------------------------------------------------
+\section*{Skills}
+
+\skill{Embedded Systems \& Hardware}{Altium Designer (PCB Design), Microcontroller Programming, Soldering, IoT Prototyping, Fusion 360 (CAD), Verilog (HDL), Xilinx SDK, Datasheet Interpretation, Oscilloscope}
+
+\skill{Programming \& Simulation}{C, C++, Python, MATLAB, Simulink, git (version control), Linux, Docker}
+
+\skill{Robotics \& AI}{ROS~2 (Robot Operating System), OpenCV, TensorFlow (Keras)}
+
+\end{document}
