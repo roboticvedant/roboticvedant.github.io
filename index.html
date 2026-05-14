@@ -497,8 +497,11 @@
             const randomPicture = pictures[Math.floor(Math.random() * pictures.length)];
             const profileImg = document.getElementById('profile-picture');
             if (profileImg) {
+              profileImg.querySelectorAll('source.responsive-img-srcset').forEach((source) => source.remove());
               const img = profileImg.querySelector('img');
               if (img) {
+                img.removeAttribute('srcset');
+                img.removeAttribute('sizes');
                 img.src = '/~naikveda/assets/img/' + randomPicture + '?v=' + Date.now();
                 img.srcset = '';
               }
