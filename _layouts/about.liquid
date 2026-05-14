@@ -29,13 +29,30 @@ layout: default
       30vw, 95vw"{% endcapture %}
           {%
             include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
+            cache_bust=true id="profile-picture"
           %}
         {% endif %}
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
       </div>
+      <!-- Randomize profile picture on page load -->
+      <script>
+        (function() {
+          const pictures = {{ site.profile_pictures | jsonify }};
+          if (pictures && pictures.length > 0) {
+            const randomPicture = pictures[Math.floor(Math.random() * pictures.length)];
+            const profileImg = document.getElementById('profile-picture');
+            if (profileImg) {
+              const img = profileImg.querySelector('img');
+              if (img) {
+                img.src = '{{ site.baseurl }}/assets/img/' + randomPicture + '?v=' + Date.now();
+                img.srcset = '';
+              }
+            }
+          }
+        })();
+      </script>
     {% endif %}
 
     <div class="clearfix">{{ content }}</div>
