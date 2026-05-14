@@ -100,11 +100,11 @@ The pipeline was wrapped as a ROS 2 node — `live_visualizer_node` — to make 
 
 The honest benchmarking story for ground-truth refinement is hard, because there is no separate "true" ground truth to score against. We did a frame-by-frame **visual inspection** pass on Scene 6 (~3 000 LiDAR frames) at each stage and counted frames usable as training labels:
 
-| Stage | Usable frames | Notes |
-|---|---|---|
-| Raw GNSS labels | **412** | Severe Z-axis error and X–Y/yaw drift in most frames |
-| + Naive RANSAC (Z-fix) | **2 089** | Z snapping alone recovers ~5× more frames |
-| + ICP refinement | **~2 832** | Translation-only ICP failed to improve the bounding box on only **28 / 500** sampled frames (5.6%) |
+| Stage                  | Usable frames | Notes                                                                                              |
+| ---------------------- | ------------- | -------------------------------------------------------------------------------------------------- |
+| Raw GNSS labels        | **412**       | Severe Z-axis error and X–Y/yaw drift in most frames                                               |
+| + Naive RANSAC (Z-fix) | **2 089**     | Z snapping alone recovers ~5× more frames                                                          |
+| + ICP refinement       | **~2 832**    | Translation-only ICP failed to improve the bounding box on only **28 / 500** sampled frames (5.6%) |
 
 So the pipeline takes Scene 6 from ~14% usable to ~95% usable — a meaningful change in the size of the trainable subset.
 
@@ -121,7 +121,7 @@ The same construction is reusable as a **sensor-fusion refinement** layer for an
 
 ## References
 
-1. Kulkarni et al., *RACECAR — The Dataset for High-Speed Autonomous Racing*, IROS 2023.
-2. Lang et al., *PointPillars: Fast Encoders for Object Detection from Point Clouds*, CVPR 2019.
-3. Aoki et al., *PointNetLK: Robust & Efficient Point Cloud Registration Using PointNet*, CVPR 2019.
-4. Jin et al., *Robust LiDAR-Based Vehicle Detection for On-Road Autonomous Driving*, Remote Sensing 15(12), 2023.
+1. Kulkarni et al., _RACECAR — The Dataset for High-Speed Autonomous Racing_, IROS 2023.
+2. Lang et al., _PointPillars: Fast Encoders for Object Detection from Point Clouds_, CVPR 2019.
+3. Aoki et al., _PointNetLK: Robust & Efficient Point Cloud Registration Using PointNet_, CVPR 2019.
+4. Jin et al., _Robust LiDAR-Based Vehicle Detection for On-Road Autonomous Driving_, Remote Sensing 15(12), 2023.

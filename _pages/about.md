@@ -28,7 +28,7 @@ Most recently I was on Tesla's **Drive Inverter Firmware** team (Aug–Dec 2025)
 
 - **Traction Inverter v2** — SiC-based field-oriented-control inverter for the MSU Solar Car. First spin demonstrated at the Spring 2026 Design Day. [[project]](/projects/traction-inverter-foc-v2/)
 - **Autonomous Blimp Robot** — Hardware, micro-ROS firmware, 6-DOF dynamics, EHGO-based disturbance rejection, and a next-gen RPi CM4 + Teensy avionics platform at the Smart Microsystems Lab. [[project]](/projects/autonomous-blimp-robot/)
-- **Soft-Robot Proprioception** — Time-Delay Neural Network compensation of nonlinear stretchable strain sensors, published in *Smart Materials and Structures* (2025). [[paper]](https://iopscience.iop.org/article/10.1088/1361-665X/adb2c7)
+- **Soft-Robot Proprioception** — Time-Delay Neural Network compensation of nonlinear stretchable strain sensors, published in _Smart Materials and Structures_ (2025). [[paper]](https://iopscience.iop.org/article/10.1088/1361-665X/adb2c7)
 
 ### Recognition
 

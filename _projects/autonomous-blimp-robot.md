@@ -36,7 +36,7 @@ The work spans hardware bring-up, full 6-DOF nonlinear dynamics derivation, a ph
   Left: the current v1 blimp robot with helium envelope and gondola. Right: v1 gondola control board running the micro-ROS firmware that bridges the platform onto the ROS 2 host stack.
 </div>
 
-## Buoyancy Tuning *(proposed — not yet implemented)*
+## Buoyancy Tuning _(proposed — not yet implemented)_
 
 One concept I've been sketching out — but haven't built — is a **tunable air bladder** inside the helium envelope to set static lift. The envelope volume would stay fixed; the bladder pulls in ambient air (≈ 70 % N₂, much heavier than helium) to displace helium and increase the system's effective weight without changing the displaced volume. Small bladder → lighter blimp; large bladder → heavier blimp. The motivation is to trim the platform to **near-neutral buoyancy** before any controller is engaged, since the actuators are weak relative to the envelope's volumetric drag and any lift mismatch eats into already-thin control authority. Today, trim is done manually with ballast.
 
@@ -163,16 +163,16 @@ $$
 
 ### Simulation Setup
 
-| Parameter | Value |
-|---|---|
-| Reference | $$[x_d, y_d] = 1.5\,[\cos(0.5t),\, \sin(0.5t)]$$ — a 1.5 m circle, 60 s period |
+| Parameter            | Value                                                                                             |
+| -------------------- | ------------------------------------------------------------------------------------------------- |
+| Reference            | $$[x_d, y_d] = 1.5\,[\cos(0.5t),\, \sin(0.5t)]$$ — a 1.5 m circle, 60 s period                    |
 | Injected disturbance | $$[\delta_x, \delta_y, \delta_\theta] = [0.4,\,-0.3,\,0.25]$$ (constant, unknown to the observer) |
-| Mass / inertia | 0.148 kg / 0.004 kg·m² |
-| Translation PD | $$K_p = 1$$, $$K_d = 1.5$$ |
-| Yaw PD | $$K_{p,\theta} = 12$$, $$K_{d,\theta} = 4$$ |
-| EHGO gains | $$L = [3,\,3,\,1]$$, $$\varepsilon = 0.1$$ |
-| Saturation | translation 0.25 m/s², yaw 5 rad/s² |
-| Integration | Forward Euler, $$dt = 1$$ ms, 5 reference periods |
+| Mass / inertia       | 0.148 kg / 0.004 kg·m²                                                                            |
+| Translation PD       | $$K_p = 1$$, $$K_d = 1.5$$                                                                        |
+| Yaw PD               | $$K_{p,\theta} = 12$$, $$K_{d,\theta} = 4$$                                                       |
+| EHGO gains           | $$L = [3,\,3,\,1]$$, $$\varepsilon = 0.1$$                                                        |
+| Saturation           | translation 0.25 m/s², yaw 5 rad/s²                                                               |
+| Integration          | Forward Euler, $$dt = 1$$ ms, 5 reference periods                                                 |
 
 Implementation is a single MATLAB script that simulates the planar plant, runs three independent `ehgo_step` Euler updates per tick, and feeds estimates back into the controller. A 6-DOF Simulink + Unreal Engine 5.3 visualizer is used for the full-3D version of the same setup.
 
@@ -214,9 +214,9 @@ The estimated disturbances $$\hat{\delta}_x, \hat{\delta}_y, \hat{\delta}_\theta
 
 ### References
 
-- Boss & Srivastava, *J. Dyn. Syst. Meas. Control* 147(1), 2025 — high-gain observer for multirotor trajectory estimation/tracking (the structural template adapted here).
-- Khalil, *IEEE Control Systems Magazine* 37(3), 2017 — high-gain observers in feedback control, with the chain-of-integrators recipe used for `ehgo_step`.
-- Cheng et al., *IEEE RA-L*, 2023 — RGBlimp design/modeling/aerodynamics, used as the rigid-body dynamics reference.
+- Boss & Srivastava, _J. Dyn. Syst. Meas. Control_ 147(1), 2025 — high-gain observer for multirotor trajectory estimation/tracking (the structural template adapted here).
+- Khalil, _IEEE Control Systems Magazine_ 37(3), 2017 — high-gain observers in feedback control, with the chain-of-integrators recipe used for `ehgo_step`.
+- Cheng et al., _IEEE RA-L_, 2023 — RGBlimp design/modeling/aerodynamics, used as the rigid-body dynamics reference.
 
 ## ROS 2 Firmware & Stack
 

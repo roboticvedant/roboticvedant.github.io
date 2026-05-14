@@ -48,10 +48,10 @@ This is a four-person senior design effort, with each member leading a distinct 
   The ECE 489 traction inverter team — Vedant K. Naik, Owen Winegar, Abdallah Daha, and Dakota Farwell.
 </div>
 
-- **Vedant K. Naik** *(ECE — Senior)* — Led system-level control and firmware development, including PMSM modeling, control-law derivation, simulation, and the fault/state-machine logic. Also contributed to sensing-hardware development and the overall safety philosophy.
-- **Owen Winegar** *(ECE — Senior)* — Led the SiC power-stage development, including the FET-related power stage and associated gate-drive hardware. Drove hardware bring-up and contributed to the hardware architecture.
-- **Abdallah Daha** *(ECE — Senior)* — Led the low-voltage power rails and the final layout/integration of the inverter subcircuits. Drove hardware assembly and bring-up.
-- **Dakota Farwell** *(ECE — Senior)* — Led the thermal design and simulation effort for the controller and housing, and led project operations including test coordination and component ordering.
+- **Vedant K. Naik** _(ECE — Senior)_ — Led system-level control and firmware development, including PMSM modeling, control-law derivation, simulation, and the fault/state-machine logic. Also contributed to sensing-hardware development and the overall safety philosophy.
+- **Owen Winegar** _(ECE — Senior)_ — Led the SiC power-stage development, including the FET-related power stage and associated gate-drive hardware. Drove hardware bring-up and contributed to the hardware architecture.
+- **Abdallah Daha** _(ECE — Senior)_ — Led the low-voltage power rails and the final layout/integration of the inverter subcircuits. Drove hardware assembly and bring-up.
+- **Dakota Farwell** _(ECE — Senior)_ — Led the thermal design and simulation effort for the controller and housing, and led project operations including test coordination and component ordering.
 
 ## What's New vs. v1
 
@@ -173,12 +173,12 @@ Spinning the motor as a generator gave the back-EMF constant and rotor flux link
 
 ### Extracted Parameters
 
-| Parameter | Symbol | Value |
-|---|---|---|
-| Stator resistance (per phase) | $$R_s$$ | 193.47 mΩ |
-| Phase inductance | $$L_s$$ | 0.44 mH |
-| Rotor flux linkage | $$\psi$$ | 98.05 mWb (± 3.25 mWb) |
-| Pole pairs | $$p$$ | 16 |
+| Parameter                     | Symbol   | Value                  |
+| ----------------------------- | -------- | ---------------------- |
+| Stator resistance (per phase) | $$R_s$$  | 193.47 mΩ              |
+| Phase inductance              | $$L_s$$  | 0.44 mH                |
+| Rotor flux linkage            | $$\psi$$ | 98.05 mWb (± 3.25 mWb) |
+| Pole pairs                    | $$p$$    | 16                     |
 
 These feed directly into the dq model used for control derivation, current-loop bandwidth design, and the torque–speed envelope simulation below.
 
@@ -233,14 +233,14 @@ Thermal simulation drives heatsink selection, FET placement, and airflow assumpt
 
 ### Thermal Stack
 
-| Path | $$R_\theta$$ (°C/W) |
-|---|---|
-| Junction → case (datasheet) | 0.35 |
-| Case → PCB (solder pad) | 0.06 |
-| PCB thermal vias (conservative) | 2.00 |
-| PCB → aluminum heatsink (TIM) | 2.00 |
-| Heatsink → ambient (10 mm Al) | 0.60 |
-| **Total** | **5.01** |
+| Path                            | $$R_\theta$$ (°C/W) |
+| ------------------------------- | ------------------- |
+| Junction → case (datasheet)     | 0.35                |
+| Case → PCB (solder pad)         | 0.06                |
+| PCB thermal vias (conservative) | 2.00                |
+| PCB → aluminum heatsink (TIM)   | 2.00                |
+| Heatsink → ambient (10 mm Al)   | 0.60                |
+| **Total**                       | **5.01**            |
 
 At a deliberately pessimistic 80 A continuous draw shared across three phases, per-FET dissipation is ≈ 10.24 W (using the datasheet 14.4 mΩ $$R_{DS(on)}$$), giving a worst-case junction rise of ~51.3 °C — well under the 175 °C absolute max. Passive cooling was therefore deemed sufficient; the heatsink was milled from 6061 aluminum, with NTC thermistors monitoring temperature in firmware.
 
