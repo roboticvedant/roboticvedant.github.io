@@ -6,9 +6,10 @@ subtitle: Robotics &amp; automotive systems · firmware, motor control, autonomy
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: prof_pic_plain_shirt.jpg
   image_circular: false
   more_info: >
+    <p>vedant(at)roboticvedant(dot)com</p>
     <p>Michigan State University</p>
     <p>College of Engineering</p>
     <p>East Lansing, MI</p>
