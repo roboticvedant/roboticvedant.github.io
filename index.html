@@ -211,7 +211,7 @@
   <meta property="og:description" content="Electrical Engineering undergraduate at Michigan State University, focused on embedded systems, control, and robotics.
 ">
   
-    <meta property="og:image" content="prof_pic.jpg">
+    <meta property="og:image" content="prof_pic_plain_shirt.jpg">
   
   <meta property="og:locale" content="en">
 
@@ -221,7 +221,7 @@
   <meta name="twitter:description" content="Electrical Engineering undergraduate at Michigan State University, focused on embedded systems, control, and robotics.
 ">
   
-    <meta name="twitter:image" content="prof_pic.jpg">
+    <meta name="twitter:image" content="prof_pic_plain_shirt.jpg">
   
   
 
@@ -472,11 +472,11 @@
       https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images for info on defining 'sizes' for responsive images
     -->
     
-      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/prof_pic-480.webp 480w,/~naikveda/assets/img/prof_pic-800.webp 800w,/~naikveda/assets/img/prof_pic-1400.webp 1400w," type="image/webp" sizes="(min-width: 930px) 270.0px, (min-width: 576px)
+      <source class="responsive-img-srcset" srcset="/~naikveda/assets/img/prof_pic_plain_shirt-480.webp 480w,/~naikveda/assets/img/prof_pic_plain_shirt-800.webp 800w,/~naikveda/assets/img/prof_pic_plain_shirt-1400.webp 1400w," type="image/webp" sizes="(min-width: 930px) 270.0px, (min-width: 576px)
       30vw, 95vw">
     
-    <img src="/~naikveda/assets/img/prof_pic.jpg?96a0309a289e959c0c4c2cd5a60235e6" class="img-fluid z-depth-1
-      rounded" width="100%" height="auto" alt="prof_pic.jpg" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
+    <img src="/~naikveda/assets/img/prof_pic_plain_shirt.jpg?bcb38dfd6a11e3ffca96e2e7e4056c5e" class="img-fluid z-depth-1
+      rounded" width="100%" height="auto" alt="prof_pic_plain_shirt.jpg" loading="eager" onerror="this.onerror=null; $('.responsive-img-srcset').remove();">
   </source></picture>
 
   
@@ -485,10 +485,27 @@
         
         
           <div class="more-info">
-<p>Michigan State University</p> <p>College of Engineering</p> <p>East Lansing, MI</p>
+<p>vedant(at)roboticvedant(dot)com</p> <p>Michigan State University</p> <p>College of Engineering</p> <p>East Lansing, MI</p>
 </div>
         
       </div>
+      <!-- Randomize profile picture on page load -->
+      <script>
+        (function() {
+          const pictures = ["prof_pic_plain_shirt.jpg","prof_pic_solar_shirt.jpg"];
+          if (pictures && pictures.length > 0) {
+            const randomPicture = pictures[Math.floor(Math.random() * pictures.length)];
+            const profileImg = document.getElementById('profile-picture');
+            if (profileImg) {
+              const img = profileImg.querySelector('img');
+              if (img) {
+                img.src = '/~naikveda/assets/img/' + randomPicture + '?v=' + Date.now();
+                img.srcset = '';
+              }
+            }
+          }
+        })();
+      </script>
     
 
     <div class="clearfix">
@@ -622,10 +639,10 @@
     
     
     <div class="periodical">
-      <em>IEEE/ASME Transactions on Mechatronics, to appear</em>,  2026
+      <em>IEEE/ASME Transactions on Mechatronics</em>,  2026
     </div>
     <div class="periodical">
-      
+      To appear
     </div>
 
     <!-- Links/Buttons -->
@@ -883,7 +900,7 @@
       Naik. 
       
       
-        Last updated: May 11, 2026.
+        Last updated: May 14, 2026.
       
     </div>
   </footer>
