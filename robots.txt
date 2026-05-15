@@ -1,1 +1,1 @@
-User-agent: * Disallow: Sitemap: https://roboticvedant.com/sitemap.xml
+User-agent: * Disallow: Sitemap: https://roboticvedant.com/sitemap.xml Sitemap: https://roboticvedant.com/image-sitemap.xml
