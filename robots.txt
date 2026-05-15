@@ -2,3 +2,4 @@ User-agent: *
 Disallow:
 
 Sitemap: https://egr.msu.edu/~naikveda/sitemap.xml
+Sitemap: https://egr.msu.edu/~naikveda/image-sitemap.xml
