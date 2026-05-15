@@ -1,2 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"></urlset>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://roboticvedant.com/</loc>
+    <image:image>
+      <image:loc>https://roboticvedant.com/assets/img/prof_pic_plain_shirt.jpg</image:loc>
+      <image:caption>Vedant K. Naik - profile photo</image:caption>
+      <image:title>Vedant K. Naik profile photo</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://roboticvedant.com/assets/img/prof_pic_solar_shirt.jpg</image:loc>
+      <image:caption>Vedant K. Naik - profile photo</image:caption>
+      <image:title>Vedant K. Naik profile photo</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://roboticvedant.com/projects/autonomous-blimp-robot/</loc>
+    <image:image>
+      <image:loc>https://roboticvedant.com/assets/img/blimp/blimp_robot.jpg</image:loc>
+      <image:caption>Vedant K. Naik - Autonomous Blimp Robot</image:caption>
+      <image:title>Vedant K. Naik autonomous blimp robot</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://roboticvedant.com/assets/img/blimp/blimp_control_board_v1.png</image:loc>
+      <image:caption>Vedant K. Naik - Autonomous Blimp Robot control board</image:caption>
+      <image:title>Vedant K. Naik blimp control board</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://roboticvedant.com/projects/foc-inverter-prototype/</loc>
+    <image:image>
+      <image:loc>https://roboticvedant.com/assets/img/foc_motorC_prototype.png</image:loc>
+      <image:caption>Vedant K. Naik - FOC inverter prototype</image:caption>
+      <image:title>Vedant K. Naik FOC inverter prototype</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://roboticvedant.com/projects/lidar-point-visualizer/</loc>
+    <image:image>
+      <image:loc>https://roboticvedant.com/assets/img/lidar_ransac.png</image:loc>
+      <image:caption>Vedant K. Naik - lidar point visualizer</image:caption>
+      <image:title>Vedant K. Naik lidar point visualizer</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://roboticvedant.com/projects/soft-robot-sensor-modelling/</loc>
+    <image:image>
+      <image:loc>https://roboticvedant.com/assets/img/soft_robot.png</image:loc>
+      <image:caption>Vedant K. Naik - soft robot sensor modelling</image:caption>
+      <image:title>Vedant K. Naik soft robot sensor modelling</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://roboticvedant.com/assets/img/publication_preview/tip-position-soft-robot.gif</image:loc>
+      <image:caption>Vedant K. Naik - soft robot sensor compensation preview</image:caption>
+      <image:title>Vedant K. Naik soft robot compensation preview</image:title>
+    </image:image>
+  </url>
+
+</urlset>
