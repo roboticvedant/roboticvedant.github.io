@@ -7,11 +7,11 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://roboticvedant.github.io/#me",
+    "@id": "https://roboticvedant.com/#me",
     "name": "Vedant K. Naik",
     "alternateName": "Vedant Naik",
-    "url": "https://roboticvedant.github.io/",
-    "image": "https://roboticvedant.github.io/assets/img/prof_pic-480.webp",
+    "url": "https://roboticvedant.com/",
+    "image": "https://roboticvedant.com/assets/img/prof_pic-480.webp",
     "email": "vedant@roboticvedant.com",
 
     "jobTitle": "Software Integration Engineer Intern, Drive Inverter Firmware",
@@ -158,6 +158,37 @@
           "name": "Smart Microsystems Lab, MSU"
         }
       }
+      ,
+      {
+        "@type": "NewsArticle",
+        "name": "Dean’s Showcase of Stars: More than $150,000 in scholarships awarded to outstanding students",
+        "url": "https://engineering.msu.edu/news/deans-showcase-stars-more-150000-in-scholarships-awarded-outstanding-students",
+        "datePublished": "2024-02-21",
+        "publisher": {
+          "@type": "Organization",
+          "name": "MSU College of Engineering"
+        }
+      },
+      {
+        "@type": "NewsArticle",
+        "name": "Over $140,000 awarded during Dean’s Showcase of Stars",
+        "url": "https://engineering.msu.edu/news/over-140000-awarded-during-deans-showcase-stars",
+        "datePublished": "2025-04-03",
+        "publisher": {
+          "@type": "Organization",
+          "name": "MSU College of Engineering"
+        }
+      },
+      {
+        "@type": "NewsArticle",
+        "name": "17 College of Engineering Students Receive Awards at Premier Showcase",
+        "url": "https://engineering.msu.edu/news/17-college-engineering-students-receive-awards-premier-showcase",
+        "datePublished": "2025-05-13",
+        "publisher": {
+          "@type": "Organization",
+          "name": "MSU College of Engineering"
+        }
+      }
     ],
 
     "sameAs": [
@@ -171,7 +202,8 @@
       "https://x.com/vedantknaik1",
       "https://www.youtube.com/@VedantNaik1",
       "https://devpost.com/v-k-naik2004",
-      "https://leetcode.com/u/roboticvedant/"
+      "https://leetcode.com/u/roboticvedant/",
+      "https://www.roboticvedant.com/"
     ]
   }
 </script>
@@ -464,7 +496,7 @@
 
 
 
-<figure>
+<figure id="profile-picture">
   <picture>
     <!-- Auto scaling with imagemagick -->
     <!--
@@ -489,23 +521,35 @@
 </div>
         
       </div>
-      <!-- Randomize profile picture on page load -->
+      <!-- Cycle profile picture on each reload (client-side) -->
       <script>
         (function() {
-          const pictures = ["prof_pic_plain_shirt.jpg","prof_pic_solar_shirt.jpg"];
-          if (pictures && pictures.length > 0) {
-            const randomPicture = pictures[Math.floor(Math.random() * pictures.length)];
-            const profileImg = document.getElementById('profile-picture');
-            if (profileImg) {
-              profileImg.querySelectorAll('source.responsive-img-srcset').forEach((source) => source.remove());
-              const img = profileImg.querySelector('img');
-              if (img) {
-                img.removeAttribute('srcset');
-                img.removeAttribute('sizes');
-                img.src = '/~naikveda/assets/img/' + randomPicture + '?v=' + Date.now();
-                img.srcset = '';
+          try {
+            const pictures = ["prof_pic_plain_shirt.jpg","prof_pic_solar_shirt.jpg"];
+            if (pictures && pictures.length > 0) {
+              const storageKey = 'profilePicIndex';
+              let idx = parseInt(localStorage.getItem(storageKey), 10);
+              if (isNaN(idx) || idx < 0) idx = 0;
+              const chosen = pictures[idx % pictures.length];
+              // advance index for next load
+              localStorage.setItem(storageKey, ((idx + 1) % pictures.length));
+
+              const profileFigure = document.getElementById('profile-picture');
+              if (profileFigure) {
+                // remove responsive <source> nodes so the modified <img> is used
+                profileFigure.querySelectorAll('source.responsive-img-srcset').forEach(function(s) { s.remove(); });
+                const img = profileFigure.querySelector('img');
+                if (img) {
+                  const base = '/~naikveda/';
+                  img.removeAttribute('srcset');
+                  img.removeAttribute('sizes');
+                  img.src = base + 'assets/img/' + chosen + '?v=' + Date.now();
+                  img.srcset = '';
+                }
               }
             }
+          } catch (e) {
+            console.error('Error cycling profile picture', e);
           }
         })();
       </script>
@@ -514,7 +558,7 @@
     <div class="clearfix">
 <p>I’m an engineer drawn to hard technical problems in <strong>robotics and automotive systems</strong> — where firmware meets dynamics. My work spans motor control, power electronics, embedded perception, and autonomous platforms.</p>
 
-<p>Most recently I was on Tesla’s <strong>Drive Inverter Firmware</strong> team (Aug–Dec 2025), and before that an ADAS Sensor Hardware Engineer Intern at <strong>Lucid Motors</strong> (May–Aug 2025). At Michigan State, I research soft-robotic sensing at the <a href="https://www.egr.msu.edu/sml/" rel="external nofollow noopener" target="_blank">Smart Microsystems Lab</a> under <a href="https://www.egr.msu.edu/~xbtan/" rel="external nofollow noopener" target="_blank">Dr. Xiaobo Tan</a>, and lead Electric Propulsion on the <a href="https://msusolarracing.com/" rel="external nofollow noopener" target="_blank">MSU Solar Racing Team</a>.</p>
+<p>Most recently I was on Tesla’s <strong>Drive Inverter Firmware</strong> team (Aug–Dec 2025), and before that an ADAS Sensor Hardware Engineer Intern at <strong>Lucid Motors</strong> (May–Aug 2025). At Michigan State, I research soft-robotic sensing at the <a href="https://www.egr.msu.edu/sml/" rel="external nofollow noopener" target="_blank">Smart Microsystems Lab</a> under <a href="https://www.egr.msu.edu/~xbtan/" rel="external nofollow noopener" target="_blank">Dr. Xiaobo Tan</a>, and lead Electric Propulsion on the <a href="https://msusolar.com/" rel="external nofollow noopener" target="_blank">MSU Solar Racing Team</a>.</p>
 
 <h3 id="what-im-working-on">What I’m working on</h3>
 
@@ -903,7 +947,7 @@
       Naik. 
       
       
-        Last updated: May 14, 2026.
+        Last updated: May 15, 2026.
       
     </div>
   </footer>
