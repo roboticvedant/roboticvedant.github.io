@@ -14,7 +14,7 @@ name: "Lighthouse Badger"
 
 # INPUTS as Secrets (env) for not manually triggered workflows
 env:
-  URLS: https://roboticvedant.github.io/
+  URLS: https://roboticvedant.com/
   # If any of the following env is blank, a default value is used instead
   REPO_BRANCH: "${{ github.repository }} ${{ github.event.repository.default_branch }}" # target repository & branch e.g. 'dummy/mytargetrepo main'
   MOBILE_LIGHTHOUSE_PARAMS: "--only-categories=performance,accessibility,best-practices,seo --throttling.cpuSlowdownMultiplier=2"

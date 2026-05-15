@@ -36,23 +36,35 @@ layout: default
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
       </div>
-      <!-- Randomize profile picture on page load -->
+      <!-- Cycle profile picture on each reload (client-side) -->
       <script>
         (function() {
-          const pictures = {{ site.profile_pictures | jsonify }};
-          if (pictures && pictures.length > 0) {
-            const randomPicture = pictures[Math.floor(Math.random() * pictures.length)];
-            const profileImg = document.getElementById('profile-picture');
-            if (profileImg) {
-              profileImg.querySelectorAll('source.responsive-img-srcset').forEach((source) => source.remove());
-              const img = profileImg.querySelector('img');
-              if (img) {
-                img.removeAttribute('srcset');
-                img.removeAttribute('sizes');
-                img.src = '{{ site.baseurl }}/assets/img/' + randomPicture + '?v=' + Date.now();
-                img.srcset = '';
+          try {
+            const pictures = {{ site.profile_pictures | jsonify }};
+            if (pictures && pictures.length > 0) {
+              const storageKey = 'profilePicIndex';
+              let idx = parseInt(localStorage.getItem(storageKey), 10);
+              if (isNaN(idx) || idx < 0) idx = 0;
+              const chosen = pictures[idx % pictures.length];
+              // advance index for next load
+              localStorage.setItem(storageKey, ((idx + 1) % pictures.length));
+
+              const profileFigure = document.getElementById('profile-picture');
+              if (profileFigure) {
+                // remove responsive <source> nodes so the modified <img> is used
+                profileFigure.querySelectorAll('source.responsive-img-srcset').forEach(function(s) { s.remove(); });
+                const img = profileFigure.querySelector('img');
+                if (img) {
+                  const base = '{{ "/" | relative_url }}';
+                  img.removeAttribute('srcset');
+                  img.removeAttribute('sizes');
+                  img.src = base + 'assets/img/' + chosen + '?v=' + Date.now();
+                  img.srcset = '';
+                }
               }
             }
+          } catch (e) {
+            console.error('Error cycling profile picture', e);
           }
         })();
       </script>

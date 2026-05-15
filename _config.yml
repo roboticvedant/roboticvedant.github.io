@@ -20,7 +20,7 @@ profile_pictures:
   - prof_pic_plain_shirt.jpg
   - prof_pic_solar_shirt.jpg
 
-url: https://roboticvedant.github.io # the base hostname & protocol for your site
+url: https://roboticvedant.com # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
 msu:
   url: https://egr.msu.edu
@@ -37,6 +37,7 @@ clustrmaps_id: LOrRMOSM-cQvLdS1DM2l-lHk2lFksoQMrGeqUzmNm2I
 # -----------------------------------------------------------------------------
 # Theme
 # -----------------------------------------------------------------------------
+
 
 # -----------------------------------------------------------------------------
 # RSS Feed

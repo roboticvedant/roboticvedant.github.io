@@ -22,7 +22,7 @@ social: true
 
 I'm an engineer drawn to hard technical problems in **robotics and automotive systems** — where firmware meets dynamics. My work spans motor control, power electronics, embedded perception, and autonomous platforms.
 
-Most recently I was on Tesla's **Drive Inverter Firmware** team (Aug–Dec 2025), and before that an ADAS Sensor Hardware Engineer Intern at **Lucid Motors** (May–Aug 2025). At Michigan State, I research soft-robotic sensing at the [Smart Microsystems Lab](https://www.egr.msu.edu/sml/) under [Dr. Xiaobo Tan](https://www.egr.msu.edu/~xbtan/), and lead Electric Propulsion on the [MSU Solar Racing Team](https://msusolarracing.com/).
+Most recently I was on Tesla's **Drive Inverter Firmware** team (Aug–Dec 2025), and before that an ADAS Sensor Hardware Engineer Intern at **Lucid Motors** (May–Aug 2025). At Michigan State, I research soft-robotic sensing at the [Smart Microsystems Lab](https://www.egr.msu.edu/sml/) under [Dr. Xiaobo Tan](https://www.egr.msu.edu/~xbtan/), and lead Electric Propulsion on the [MSU Solar Racing Team](https://msusolar.com/).
 
 ### What I'm working on
 

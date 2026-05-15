@@ -1,6 +1,6 @@
 Personal website for Vedant K. Naik built with the `al-folio` Jekyll theme.
 
-This repository contains the source for the site hosted at `https://roboticvedant.github.io`.
+This repository contains the source for the site hosted at `https://roboticvedant.com`.
 
 **Quick start (local development)**
 
