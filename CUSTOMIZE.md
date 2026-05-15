@@ -16,7 +16,6 @@ The project is structured as follows, focusing on the main components that you w
 ├── 📄 _config.yml: the configuration file of the template
 ├── 📂 _data/: contains some of the data used in the template
 │   ├── 📄 cv.yml: CV in YAML format, used when assets/json/resume.json is not found
-│   ├── 📄 repositories.yml: users and repositories info in YAML format
 │   └── 📄 socials.yml: your social media and contact info in YAML format
 ├── 📂 _includes/: contains code parts that are included in the main HTML file
 │   └── 📄 news.liquid: defines the news section layout in the about page
@@ -48,9 +47,9 @@ There are currently 2 different ways of generating the CV page content. The firs
 
 What this means is, if there is no resume data defined in [\_config.yml](_config.yml) and loaded via a json file, it will load the contents of [\_data/cv.yml](_data/cv.yml). If you want to use the [\_data/cv.yml](_data/cv.yml) file as the source of your CV, you must delete the [assets/json/resume.json](assets/json/resume.json) file.
 
-## Modifying the user and repository information
+## Modifying the user information
 
-The user and repository information is defined in [\_data/repositories.yml](_data/repositories.yml). You can add as many users and repositories as you want. Both informations are used in the `repositories` section.
+User contact and social links are defined in [\_data/socials.yml](_data/socials.yml). Update that file to change the social media and contact information displayed on the site.
 
 ## Creating new pages
 

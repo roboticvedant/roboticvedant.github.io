@@ -7,12 +7,17 @@ subtitle: Robotics &amp; automotive systems · firmware, motor control, autonomy
 profile:
   align: right
   image: prof_pic_plain_shirt.jpg
+  image_alt: Vedant K. Naik - robotics and firmware engineer, Michigan State University
   image_circular: false
   more_info: >
     <p>vedant(at)roboticvedant(dot)com</p>
     <p>Michigan State University</p>
     <p>College of Engineering</p>
     <p>East Lansing, MI</p>
+
+description: >
+  I want to build the next generation of disruptive automotive systems and lead the teams that do it. I model first, build second, and solve hard problems across electrical, mechanical, and software boundaries.
+keywords: Embedded Systems, Robotics, Autonomous Vehicles, Firmware, Motor Control, Soft Robotics, Machine Learning, MSU
 
 news: false
 latest_posts: false

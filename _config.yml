@@ -2,16 +2,16 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Vedant K. Naik 's Homepage
+title: Vedant K. Naik
 first_name: Vedant
 middle_name: K.
 last_name: Naik
 contact_note: >
   Best way to reach me is via email.
 description: >
-  Electrical Engineering undergraduate at Michigan State University, focused on embedded systems, control, and robotics.
+  Vedant K. Naik — building smart systems and solving hard problems. Work spans embedded systems, motor control, firmware, autonomous vehicles, and soft-robotics research.
 footer_text: >
-keywords: jekyll, jekyll-theme, academic-website, portfolio-website, robotics, vedant, embedded systems, rl, autonomy, av # add your own keywords or leave empty
+keywords: Vedant K. Naik, Vedant Naik, robotics, embedded systems, motor control, firmware, autonomous vehicles, ADAS, soft robotics, machine learning, Michigan State University, Tesla, Lucid Motors
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🤖 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -19,6 +19,7 @@ icon: 🤖 # the emoji used as the favicon (alternatively, provide image name in
 profile_pictures:
   - prof_pic_plain_shirt.jpg
   - prof_pic_solar_shirt.jpg
+  - prof_pic_msu_coe_grad.jpg
 
 url: https://roboticvedant.com # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/. Leave blank for root
@@ -37,7 +38,6 @@ clustrmaps_id: LOrRMOSM-cQvLdS1DM2l-lHk2lFksoQMrGeqUzmNm2I
 # -----------------------------------------------------------------------------
 # Theme
 # -----------------------------------------------------------------------------
-
 
 # -----------------------------------------------------------------------------
 # RSS Feed
@@ -69,7 +69,7 @@ max_width: 930px
 # see https://schema.org/docs/faq.html for more information
 serve_og_meta: true # Include Open Graph meta tags in the HTML head
 serve_schema_org: true # Include Schema.org in the HTML head
-og_image: prof_pic_plain_shirt.jpg # The site-wide (default for all links) Open Graph preview image
+og_image: /assets/img/prof_pic_plain_shirt.jpg # The site-wide (default for all links) Open Graph preview image
 
 # -----------------------------------------------------------------------------
 # Analytics and search engine verification
